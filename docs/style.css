@@ -1,0 +1,95 @@
+:root {
+  --fade-time: 2s;
+  --windowwidth: 0;
+}
+* {
+}
+footer {
+  min-height: 50px;
+  background: red;
+}
+header {
+  container-type: inline-size;
+  background: gray;
+}
+h1, h2, h3 {
+  text-align: center;
+}
+nav {
+  width: 60%;
+  margin-inline: auto;
+  padding-inline: 2em;
+  display: flex;
+  gap: 2rem;
+  place-content: space-between;
+  list-style: none;
+  background-color: lightblue;
+}
+button {
+  background: transparent;
+  border: 2px solid transparent;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+.pkmn-list {
+  list-style: none;
+  margin-left: 3em;
+  width: max-content;
+}
+.pkmn {
+  padding-top: .4em;
+  padding-bottom: .4em;
+  opacity: 1;
+  /*transition: opacity var(--fade-time) ease-in-out;*/
+  display: grid;
+  /* compute the best widths for two columns based on reponsive sites */
+  grid-template-columns: calc(var(--windowwidth)/8) calc(var(--windowwidth)/8);
+  place-items: center;
+  box-shadow: 0 0 2px 5px silver;
+}
+.pkmn[hidden] {
+  opacity: 0;
+  display: none;
+}
+.pkmn:not(:last-child) {
+  /*border-bottom: 1px solid black;*/
+}
+.filter-btn.active {
+  pointer-events: none;
+  background: black;
+  color: white;
+  box-shadow: 0 0 .5rem rgb(0 0 0 / .2);
+}
+[hidden] {
+  opacity: 0;
+}
+@media (hover:hover) {
+  .filter-btn:hover, .filter-btn:focus {
+    background-color: snow;
+    color: black;
+    cursor: pointer;
+    transform: scale(1.2);
+  } 
+}
+@media (orientation:portrait) {
+  nav {
+    flex-wrap: wrap;
+    gap: 0;
+	margin-inline: auto;
+    padding: 1em;
+  }
+  .pkmn-list, .pkmn {
+    width: inherit;
+    padding: 0;
+  }
+  .pkmn-list {
+    display: block;
+    margin-inline: 5%;
+  }
+  .pkmn {
+    padding-left: .5em;
+    grid-template-columns: 50% 50%;
+  }
+}
