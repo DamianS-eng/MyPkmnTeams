@@ -20,7 +20,6 @@ nav {
   margin-inline: auto;
   padding-inline: 2em;
   display: flex;
-  gap: 2rem;
   place-content: space-between;
   list-style: none;
   background-color: lightblue;
@@ -28,6 +27,7 @@ nav {
 button {
   background: transparent;
   border: 2px solid transparent;
+  padding-inline: .5em;
 }
 img {
 	max-width: 100%;
@@ -76,9 +76,13 @@ img {
 @media (orientation:portrait) {
   nav {
     flex-wrap: wrap;
-    gap: 0;
-	margin-inline: auto;
     padding: 1em;
+  }
+  button {
+    padding: .1em;
+    margin-inline: .2em;
+    margin-bottom: .1em;
+    box-shadow: 1px 1px black;
   }
   .pkmn-list, .pkmn {
     width: inherit;
