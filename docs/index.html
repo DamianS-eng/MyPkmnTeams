@@ -9,7 +9,8 @@
 	<link rel="icon" type="image/ico" href="./image.ico"/>
 	<script src="./index.js" defer>
 		let FF_FOUC_FIX;
-	</script>	
+	</script>
+	<script src="./importTeam.js" defer></script>	
 </head>
 <body onload="loadAll()">
 	<header>
@@ -24,7 +25,10 @@
 		  <li><button class="filter-btn" data-filter="Gen6" onclick="clickFilter(this)">Gen 6</button></li>
 		  <li><button class="filter-btn" data-filter="Legends" onclick="clickFilter(this)">Legends</button></li>
 		</nav>
-	</header>		
+	</header>
+	<section>
+		<p id="inserthere"></p>
+	</section>
 	<main>
 		<ul class="pkmn-list Gen1" data-gen1>
 		  <li class="pkmn" 
