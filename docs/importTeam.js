@@ -5,6 +5,6 @@ fetch('pkmnteams.json')
   })
   .then(data => {
     console.log(data);
-		insEle.innerHTML = data;
+		insEle.innerHTML = "Data Imported.";
   })
-  .catch(err => console(err));
+  .catch(err => console("Hmm, this problem happened...: " + err));
