@@ -50,8 +50,7 @@ getJSON(JSONfile, function(err, data) {
 		console.log(gen);
 	};
 	for (const gen in importTeam) {
-//	  console.log(`${gen}: ${importTeam[gen]}`);
-		console.log(`${gen}: ${importTeam[gen]});
+		console.log(`${gen}: ${importTeam[gen]}`);
 		for (const poke in importTeam[gen]){
   			console.log(`${poke}: ${importTeam[gen][poke]}`);
   		};
