@@ -46,12 +46,15 @@ getJSON(JSONfile, function(err, data) {
 		return;
 	}
 	importTeam = data;
-	for (const gen in filterList.children){
+	for (const gen in filterList){
 		console.log(gen);
 	};
 	for (const gen in importTeam) {
 //	  console.log(`${gen}: ${importTeam[gen]}`);
-	  console.log(importTeam[gen]);
+		console.log(`${gen}: ${importTeam[gen]});
+		for (const poke in importTeam[gen]){
+  			console.log(`${poke}: ${importTeam[gen][poke]}`);
+  		};
 	};
 });
 
