@@ -13,137 +13,137 @@
 			]
 		},
 		{
-			"name": "",
+			"name": "Starmie",
 			"num": "186",
-			"nick": "",
-			"nature": "",
+			"nick": "Starman",
+			"nature": "Modest",
 			"moves": [
-				"",
-				"",
-				"",
-				""
+				"Thunderbolt",
+				"Surf",
+				"Psychic",
+				"Ice Beam"
 			]
 		},
 		{
-			"name": "",
+			"name": "Rhydon",
 			"num": "186",
-			"nick": "",
+			"nick": "Runo",
 			"nature": "",
 			"moves": [
-				"",
-				"",
-				"",
-				""
+				"Earthquake",
+				"Rock Slide",
+				"Body Slam",
+				"Submission"
 			]
 		},
 		{
-			"name": "",
+			"name": "Flareon",
 			"num": "186",
-			"nick": "",
-			"nature": "",
+			"nick": "Pyra",
+			"nature": "Impish",
 			"moves": [
-				"",
-				"",
-				"",
-				""
+				"Fire Spin",
+				"Quick Attack",
+				"Hyper Beam",
+				"Fire Blast"
 			]
 		},
 		{
-			"name": "",
+			"name": "Primeape",
 			"num": "186",
-			"nick": "",
+			"nick": "DESTROY",
 			"nature": "",
 			"moves": [
-				"",
-				"",
-				"",
-				""
+				"Thrash",
+				"Submission",
+				"Rock Slide",
+				"Screech"
 			]
 		},
 		{
-			"name": "",
+			"name": "Golbat",
 			"num": "186",
-			"nick": "",
-			"nature": "",
+			"nick": "Winged",
+			"nature": "Jolly",
 			"moves": [
-				"",
-				"",
-				"",
-				""
+				"Leech Life",
+				"Wing Attack",
+				"Swift",
+				"Substitute"
 			]
 		}
 	],
 	"gen2": [
 		{
 			"name": "Politoed",
-			"nick": "",
+			"nick": "Lout",
 			"num": "186",
-			"nature": "",
+			"nature": "Modest",
 			"moves": {
-				"1": "",
-				"2": "",
-				"3": "",
-				"4": ""
+				"1": "Thief",
+				"2": "Mist",
+				"3": "Surf",
+				"4": "Ice Beam"
 			}
 		},
 		{
-			"name": "",
+			"name": "Skarmory",
 			"num": "186",
-			"nick": "",
-			"nature": "",
+			"nick": "Metal",
+			"nature": "Naughty",
 			"moves": [
-				"",
-				"",
-				"",
-				""
+				"Sky Attack",
+				"Steel Wing",
+				"Thief",
+				"Sunny Day"
 			]
 		},
 		{
-			"name": "",
+			"name": "Houndoom",
 			"num": "186",
-			"nick": "",
-			"nature": "",
+			"nick": "Ludo",
+			"nature": "Modest",
 			"moves": [
-				"",
-				"",
-				"",
-				""
+				"Faint Attack",
+				"Flamethrower",
+				"Solarbeam",
+				"Sunny Day"
 			]
 		},
 		{
-			"name": "",
+			"name": "Girafarig",
 			"num": "186",
-			"nick": "",
-			"nature": "",
+			"nick": "Nestle",
+			"nature": "Jolly",
 			"moves": [
-				"",
-				"",
-				"",
-				""
+				"Psych Up",
+				"Agility",
+				"Baton Pass",
+				"Swift"
 			]
 		},
 		{
-			"name": "",
+			"name": "Donphan",
 			"num": "186",
-			"nick": "",
-			"nature": "",
+			"nick": "Fang",
+			"nature": "Adamant",
 			"moves": [
-				"",
-				"",
-				"",
-				""
+				"Rollout",
+				"Earthquake",
+				"Defense Curl",
+				"Rapid Spin"
 			]
 		},
 		{
-			"name": "",
+			"name": "Jolteon",
 			"num": "186",
-			"nick": "",
-			"nature": "",
+			"nick": "Razor",
+			"nature": "Timid",
 			"moves": [
-				"",
-				"",
-				"",
-				""
+				"Agility",
+				"Baton Pass",
+				"Thunderbolt",
+				"Bite"
 			]
 		}
 	],
@@ -154,70 +154,70 @@
 			"num": "186",
 			"nature": "",
 			"moves": {
-				"1": "",
-				"2": "",
-				"3": "",
-				"4": ""
+				"1": "Dragon Claw",
+				"2": "Thunder Punch",
+				"3": "Leaf Blade",
+				"4": "Pursuit"
 			}
 		},
 		{
-			"name": "",
+			"name": "Blazekin",
 			"num": "186",
 			"nick": "",
 			"nature": "",
 			"moves": [
-				"",
-				"",
-				"",
-				""
+				"Blaze Kick",
+				"Sky Uppercut",
+				"Rock Slide",
+				"Earthquake"
 			]
 		},
 		{
-			"name": "",
+			"name": "Raichu",
 			"num": "186",
 			"nick": "",
 			"nature": "",
 			"moves": [
-				"",
-				"",
-				"",
-				""
+				"Thunder",
+				"Substitute",
+				"Focus Punch",
+				"Rain Dance"
 			]
 		},
 		{
-			"name": "",
+			"name": "Cloyster",
 			"num": "186",
 			"nick": "",
 			"nature": "",
 			"moves": [
-				"",
-				"",
-				"",
-				""
+				"Ice Beam",
+				"Surf",
+				"Toxic",
+				"Explosion"
 			]
 		},
 		{
-			"name": "",
+			"name": "Aggron",
 			"num": "186",
 			"nick": "",
 			"nature": "",
 			"moves": [
-				"",
-				"",
-				"",
-				""
+				"Double Edge",
+				"Metal Claw",
+				"Earthquake",
+				"Rock Slide"
 			]
 		},
 		{
-			"name": "",
+			"name": "Shedinja",
 			"num": "186",
 			"nick": "",
 			"nature": "",
 			"moves": [
-				"",
-				"",
-				"",
-				""
+				"Silver Wind",
+				"Shadow Ball",
+				"Aerial Ace",
+				"Dig"
 			]
 		}
 	],
@@ -235,7 +235,7 @@
 			}
 		},
 		{
-			"name": "",
+			"name": "Quilava",
 			"num": "186",
 			"nick": "",
 			"nature": "",
@@ -247,7 +247,31 @@
 			]
 		},
 		{
-			"name": "",
+			"name": "Octilery",
+			"num": "186",
+			"nick": "",
+			"nature": "",
+			"moves": [
+				"Surf",
+				"Ice Beam",
+				"Bullet Seed",
+				"PSychic"
+			]
+		},
+		{
+			"name": "Flygon",
+			"num": "186",
+			"nick": "",
+			"nature": "",
+			"moves": [
+				"Dragon Claw",
+				"Earthquake",
+				"rock Slide",
+				"Screech"
+			]
+		},
+		{
+			"name": "Meganium",
 			"num": "186",
 			"nick": "",
 			"nature": "",
@@ -259,31 +283,7 @@
 			]
 		},
 		{
-			"name": "",
-			"num": "186",
-			"nick": "",
-			"nature": "",
-			"moves": [
-				"",
-				"",
-				"",
-				""
-			]
-		},
-		{
-			"name": "",
-			"num": "186",
-			"nick": "",
-			"nature": "",
-			"moves": [
-				"",
-				"",
-				"",
-				""
-			]
-		},
-		{
-			"name": "",
+			"name": "Hariyama",
 			"num": "186",
 			"nick": "",
 			"nature": "",
