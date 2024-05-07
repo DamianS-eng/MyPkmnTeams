@@ -50,9 +50,9 @@ getJSON(JSONfile, function(err, data) {
 		console.log(gen.innerHTML);
 	};
 	for (const gen in importTeam) {
-		console.log(`${gen}: ${importTeam[gen]}`);
+		console.log(`${gen}: ${importTeam[gen].length}`);
 		for (const poke in importTeam[gen]){
-  			console.log(`${poke}: ${importTeam[gen][poke].name}`);
+  			console.log(`${importTeam[gen][poke].name}`);
   		};
 	};
 });
@@ -101,6 +101,12 @@ function addPkmnImg(gaem) {
 	return ('<img ' + temString + ' alt= '+ gaem.dataset.pkmnname +'>');
 };
 function addPkmnInfo(Pkmninfo) {
+//	Query select <ul> of corresponding generation, check Class List of <ul>
+//	For each poke
+//	Create list item
+//	  Inside poke-info,
+//	    Fill innerHTML of pkmn-nick, pkmn-nature
+//	    Fill innerHTML of each list item (move)
 };
 function filterEvents(clickedFilter) {
   if (clickedFilter === "All") {
