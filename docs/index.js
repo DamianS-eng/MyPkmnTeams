@@ -11,6 +11,7 @@ const filterList = document.querySelector(".filter");
 const filterButtons = filterList.querySelectorAll(".filter-btn");
 const titles = document.querySelectorAll(".pkmn");
 let activeButton = filterList.querySelector(".active");
+let importTeam = {}
 
 /* gaem.dataset.pkmn-no*/
 const sitesource = 'https://serebii.net';
@@ -23,6 +24,30 @@ const imglinks = {
 	Gen6: 	'src="'+ sitesource + '/xy/pokemon/'+ '000' + '.png"',
 	Legends: 'src="'+ sitesource + '/swordshield/pokemon/'+ '000' + '.png"'
 };
+
+const JSONfile = 'pkmnteams.json';
+const getJSON = function(url, callback) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'json';
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        callback(null, xhr.response);
+		return;
+      } 
+	callback(status, xhr.response);
+    };
+    xhr.send();
+};
+
+getJSON(JSONfile, function(err, data) {
+	if (err !== null) {
+		alert("Hmm..." + err);
+		return;
+	}
+	importTeam = data;
+	console.log(importTeam);
+});
 
 document.querySelector(':root').style
     .setProperty('--windowwidth', window.innerWidth+'px');
