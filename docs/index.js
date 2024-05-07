@@ -52,7 +52,6 @@ getJSON(JSONfile, function(err, data) {
 	for (const gen in importTeam) {
 //	  console.log(`${gen}: ${importTeam[gen]}`);
 	  console.log(importTeam[gen]);
-	  };
 	};
 });
 
