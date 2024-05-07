@@ -48,7 +48,7 @@ getJSON(JSONfile, function(err, data) {
 	importTeam = data;
 	importTeam.forEach((obj) => {
 		console.log(obj);
-	};
+	});
 });
 
 document.querySelector(':root').style
