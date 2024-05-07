@@ -46,8 +46,8 @@ getJSON(JSONfile, function(err, data) {
 		return;
 	}
 	importTeam = data;
-	for (const obj of importTeam) {
-		console.log(obj);
+	for (const obj in importTeam) {
+	  console.log(`${obj}: ${importTeam[obj]}`);
 	};
 });
 
