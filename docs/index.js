@@ -13,6 +13,8 @@ const titles = document.querySelectorAll(".pkmn");
 let activeButton = filterList.querySelector(".active");
 let importTeam = {}
 
+const genList = document.querySelectorAll(".pkmn-list");
+
 /* gaem.dataset.pkmn-no*/
 const sitesource = 'https://serebii.net';
 const imglinks = {
@@ -101,7 +103,7 @@ function addPkmnImg(gaem) {
 	return ('<img ' + temString + ' alt= '+ gaem.dataset.pkmnname +'>');
 };
 function addPkmnInfo(Pkmninfo) {
-//	Query select <ul> of corresponding generation, check Class List of <ul>
+//	Query select <ul> of corresponding generation, check Class List of <ul> (genList)
 //	For each poke
 //	Create list item
 //	  Inside poke-info,
@@ -125,3 +127,4 @@ function filterEvents(clickedFilter) {
     };
   });
 };
+console.log(genList)
