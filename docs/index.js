@@ -10,6 +10,7 @@
 const filterList = document.querySelector(".filter");
 const filterButtons = filterList.querySelectorAll(".filter-btn");
 const titles = document.querySelectorAll(".pkmn");
+const mainEle = document.querySelector("main");
 let activeButton = filterList.querySelector(".active");
 
 const genList = document.querySelectorAll(".pkmn-list");
@@ -34,7 +35,7 @@ const getJSON = function(url, callback) {
     xhr.onload = function() {
       if (xhr.status === 200) {
         callback(null, xhr.response);
-		return;
+	return;
       } 
 	callback(status, xhr.response);
     };
@@ -90,25 +91,58 @@ function getActiveButton() {
 };
 function loadAll() {
 	titles.forEach((gaem) => {
-	if (gaem.querySelector("img")){
-		gaem.querySelector("img").remove();
-	};
-	gaem.innerHTML += addPkmnImg(gaem);
-    gaem.removeAttribute("hidden");
+		if (gaem.querySelector("img")){
+			gaem.querySelector("img").remove();
+		};
+    	gaem.removeAttribute("hidden");
   });
 }
+/*
 function addPkmnImg(gaem) {
 	let temString = imglinks[gaem.dataset.category];
 	temString = temString.replace(/000/g,gaem.dataset.pkmnno);
 	return ('<img ' + temString + ' alt= '+ gaem.dataset.pkmnname +'>');
 };
+*/
+function addGeneration(fromGen) {
+	const pkmnlistEle = document.createElement("ul");
+	pkmnlist.classList.add("pkmn-list");
+	//pkmnlist.classList.add(gen);
+	fromGene.forEach((poke) => {
+		pkmnlist.appendChild(addPkmnInfo(i));
+	}
+	mainEle.appendChild(pkmnlistEle)	
+};
 function addPkmnInfo(Pkmninfo) {
-//	Query select <ul> of corresponding generation, check Class List of <ul> (genList)
+	const pokeEle = document.createElement("li");
+	pokeEle.classList.add("pkmn");
+	const pokeInfoEle = document.createElement("div");
+	pokeInfoEle.classList.add("pkmn-info");
+	const pokeInfoHead = document.createElement("h3");
+	pokeInfoHead.classList.add("pkmn-name");
+	const pokeInfoNick = document.createElement("span"), pokeInfoNature = document.createElement("span");
+	pokeInfoNick.classList.add("pkmn-nick");
+	pokeInfoNick.innerHTML = Pkmninfo.nick;
+	pokeInfoNature.classList.add("pkmn-nature");
+	pokeInfoNature.innerHTML = Pkmninfo.nature;
+	pokeInfoHead.innerHTML = pokeInfoNick + " the " + pokeInfoNature;
+	const pokeMovesEle = document.createElement("ul");
+	pokeMovesEle.classList.add("pkmn-info-moves");
+	Pkmninfo.moves.forEach((move) => {
+		const moveEle = document.createElement("li");
+		moveEle.classList.add("pkmn-move");
+		moveEle.innerHTML = move;
+		pokeMovesEle.appendChild(movesEle);
+	});
 //	For each poke
 //	Create list item
 //	  Inside poke-info,
 //	    Fill innerHTML of pkmn-nick, pkmn-nature
 //	    Fill innerHTML of each list item (move)
+	pokeInfoEle.appendChild(pokeInfoHead);
+	pokeInfoEle.appendChild(pokeMovesEle);
+	pokeEle.appendChild(pokeInfoEle);
+	return pokeEle;
 };
 function filterEvents(clickedFilter) {
   if (clickedFilter === "All") {
@@ -122,7 +156,9 @@ function filterEvents(clickedFilter) {
 		gaem.querySelector("img").remove();
 	};
     if (clickedFilter === gaemCategory) {
+	/*
 	  gaem.innerHTML += addPkmnImg(gaem);
+   	*/
 	  gaem.removeAttribute("hidden");	  
     };
   });
