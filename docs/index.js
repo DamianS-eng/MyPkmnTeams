@@ -11,7 +11,6 @@ const filterList = document.querySelector(".filter");
 const filterButtons = filterList.querySelectorAll(".filter-btn");
 const titles = document.querySelectorAll(".pkmn");
 let activeButton = filterList.querySelector(".active");
-let importTeam = {}
 
 const genList = document.querySelectorAll(".pkmn-list");
 
@@ -45,9 +44,10 @@ const getJSON = function(url, callback) {
 getJSON(JSONfile, function(err, data) {
 	if (err !== null) {
 		alert("Hmm..." + err);
+		const importTeam = {};
 		return;
 	}
-	importTeam = data;
+	const importTeam = data;
 	for (const gen in filterList.children){
 		console.log(gen.innerHTML);
 	};
