@@ -63,6 +63,8 @@ function filterEvents(clickedFilterName) {
   genList.forEach((gaem) => {
     const generation = gaem.name;
     gaem.setAttribute("hidden", "");
+		if(debug){console.log(clickedFilterName);}
+		if(debug){console.log(generation);}
     if (clickedFilterName === generation) {
 	  	gaem.removeAttribute("hidden");	  
     };
