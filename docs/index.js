@@ -1,3 +1,4 @@
+const debug = true;
 /*
 	Each Pkmn is a data object with:
 		pkmn sprite retrieved from species name
@@ -8,12 +9,11 @@
 // On November 2023, startViewTransition does not work on Safari or Firefox, don't bother with ViewAPI
 
 const filterList = document.querySelector(".filter");
-const filterButtons = filterList.querySelectorAll(".filter-btn");
-const titles = document.querySelectorAll(".pkmn");
 const mainEle = document.querySelector("main");
-let activeButton = filterList.querySelector(".active");
-
 const genList = document.querySelectorAll(".pkmn-list");
+let filterButtons = filterList.querySelectorAll(".filter-btn");
+let activeButton = filterList.querySelector(".active");
+let pokes = document.querySelectorAll(".pkmn");
 
 /* gaem.dataset.pkmn-no*/
 const sitesource = 'https://serebii.net';
@@ -35,9 +35,38 @@ window.addEventListener('resize', function(event){
     .setProperty('--windowwidth', window.innerWidth+'px');
 });
 
+/*
+## Functions
+*/
+
+/*
+### Navigation Functions
+- Filter events
+- Event Listener for Filter Buttons
+- Change and get Active filter button
+*/
+function filterEvents(clickedFilter) {
+  if (clickedFilter.name === "All") {
+    loadAll();
+    return;
+  };
+  titles.forEach((gaem) => {
+    const gaemCategory = gaem.dataset.category;
+    gaem.setAttribute("hidden", "");
+		if (gaem.querySelector("img")){
+			gaem.querySelector("img").remove();
+		};
+    if (clickedFilter === gaemCategory) {
+	/*
+	  gaem.innerHTML += addPkmnImg(gaem);
+   	*/
+	  gaem.removeAttribute("hidden");	  
+    };
+  });
+};
 function clickFilter(e) {
-  const clickedButton = e.dataset.filter;
-  // console.log("Clicked: " + clickedButton);
+  const clickedButton = e.name;
+  if(debug){console.log("Clicked: " + clickedButton);}
   if (!document.startViewTransition) {
     changeActive(e);
     filterEvents(clickedButton);
@@ -56,31 +85,46 @@ function changeActive(clicked) {
 function getActiveButton() {
   activeButton = filterList.querySelector(".active");
 };
+/*
+	### Onload
+*/
 function loadAll() {
-	titles.forEach((gaem) => {
+	/*
+ 		This may need to be an await function to wait on the .json load.
+ 	*/
+	pokes = document.querySelectorAll(".pkmn");
+	pokes.forEach((gaem) => {
+/*		
 		if (gaem.querySelector("img")){
 			gaem.querySelector("img").remove();
 		};
+*/
     		gaem.removeAttribute("hidden");
   	});
 };
 /*
-function addPkmnImg(gaem) {
-	let temString = imglinks[gaem.dataset.category];
-	temString = temString.replace(/000/g,gaem.dataset.pkmnno);
-	return ('<img ' + temString + ' alt= '+ gaem.dataset.pkmnname +'>');
-};
+	### Insert Functions
+ 	- Img
+  	- generation to main
+    - pokes to generation
+	- pokeinfo to poke
 */
+function addPkmnImg(pkmnno, name, gaem) {
+	let temString = imglinks[gaem];
+	if(debug){console.log(temString)};
+	temString = temString.replace(/000/g,pkmnno);
+	return ('<img ' + temString + ' alt= '+ name +'>');
+};
 function addGeneration(fromGen) {
 	const pkmnlistEle = document.createElement("ul");
-	pkmnlist.classList.add("pkmn-list");
-	//pkmnlist.classList.add(gen);
-	fromGene.forEach((poke) => {
-		pkmnlist.appendChild(addPkmnInfo(i));
+	pkmnlistEle.classList.add("pkmn-list");
+	pkmnlistEle.classList.add(Object.keys(fromGen));
+	fromGen.forEach((poke) => {
+		pkmnlistEle.appendChild(addPkmnInfo(poke), Object.keys(fromGen));
 	});
-	mainEle.appendChild(pkmnlistEle)	
+	return pkmnlistEle;
 };
-function addPkmnInfo(Pkmninfo) {
+function addPkmnInfo(Pkmninfo, gen) {
 	const pokeEle = document.createElement("li");
 	pokeEle.classList.add("pkmn");
 	const pokeInfoEle = document.createElement("div");
@@ -109,25 +153,11 @@ function addPkmnInfo(Pkmninfo) {
 	pokeInfoEle.appendChild(pokeInfoHead);
 	pokeInfoEle.appendChild(pokeMovesEle);
 	pokeEle.appendChild(pokeInfoEle);
+	pokeEle.appendChild(addPkmnImg(Pkmninfo.num, Pkmninfo.name, gen));
 	return pokeEle;
 };
-function filterEvents(clickedFilter) {
-  if (clickedFilter === "All") {
-    loadAll();
-    return;
-  };
-  titles.forEach((gaem) => {
-    const gaemCategory = gaem.dataset.category;
-    gaem.setAttribute("hidden", "");
-		if (gaem.querySelector("img")){
-			gaem.querySelector("img").remove();
-		};
-    if (clickedFilter === gaemCategory) {
-	/*
-	  gaem.innerHTML += addPkmnImg(gaem);
-   	*/
-	  gaem.removeAttribute("hidden");	  
-    };
-  });
-};
-console.log(genList)
+if(debug){console.log(importList);}
+if(debug){console.log(genList);}
+importList.forEach((gen) => {
+	mainEle.appendChild(addGeneration(gen));
+});
