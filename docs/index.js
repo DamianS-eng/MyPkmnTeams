@@ -27,39 +27,6 @@ const imglinks = {
 	Legends: 'src="'+ sitesource + '/swordshield/pokemon/'+ '000' + '.png"'
 };
 
-const JSONfile = 'pkmnteams.json';
-const getJSON = function(url, callback) {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.responseType = 'json';
-    xhr.onload = function() {
-      if (xhr.status === 200) {
-        callback(null, xhr.response);
-	return;
-      } 
-	callback(status, xhr.response);
-    };
-    xhr.send();
-};
-
-getJSON(JSONfile, function(err, data) {
-	if (err !== null) {
-		alert("Hmm..." + err);
-		const importTeam = {};
-		return;
-	}
-	const importTeam = data;
-	for (const gen in filterList.children){
-		console.log(gen.innerHTML);
-	};
-	for (const gen in importTeam) {
-		console.log(`${gen}: ${importTeam[gen].length}`);
-		for (const poke in importTeam[gen]){
-  			console.log(`${importTeam[gen][poke].name}`);
-  		};
-	};
-});
-
 document.querySelector(':root').style
     .setProperty('--windowwidth', window.innerWidth+'px');
 
@@ -94,9 +61,9 @@ function loadAll() {
 		if (gaem.querySelector("img")){
 			gaem.querySelector("img").remove();
 		};
-    	gaem.removeAttribute("hidden");
-  });
-}
+    		gaem.removeAttribute("hidden");
+  	});
+};
 /*
 function addPkmnImg(gaem) {
 	let temString = imglinks[gaem.dataset.category];
@@ -110,7 +77,7 @@ function addGeneration(fromGen) {
 	//pkmnlist.classList.add(gen);
 	fromGene.forEach((poke) => {
 		pkmnlist.appendChild(addPkmnInfo(i));
-	}
+	});
 	mainEle.appendChild(pkmnlistEle)	
 };
 function addPkmnInfo(Pkmninfo) {
@@ -152,9 +119,9 @@ function filterEvents(clickedFilter) {
   titles.forEach((gaem) => {
     const gaemCategory = gaem.dataset.category;
     gaem.setAttribute("hidden", "");
-	if (gaem.querySelector("img")){
-		gaem.querySelector("img").remove();
-	};
+		if (gaem.querySelector("img")){
+			gaem.querySelector("img").remove();
+		};
     if (clickedFilter === gaemCategory) {
 	/*
 	  gaem.innerHTML += addPkmnImg(gaem);
