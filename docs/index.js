@@ -61,11 +61,11 @@ function filterEvents(clickedFilterName) {
     return;
   };
   genList.forEach((gaem) => {
-    const generation = gaem.name;
+    const generation = gaem.classList;
     gaem.setAttribute("hidden", "");
 		if(debug){console.log(clickedFilterName);}
-		if(debug){console.log(gaem);}
-    if (clickedFilterName === generation) {
+		if(debug){console.log(generation);}
+    if (gaem.classList.contains(clickedFilterName)) {
 	  	gaem.removeAttribute("hidden");	  
     };
   });
