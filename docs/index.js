@@ -88,20 +88,21 @@ function getActiveButton() {
 /*
 	### Onload
 */
-function loadAll() {
+
 	/*
  		This may need to be an await function to wait on the .json load.
- 	*/
+function loadAll() {
 	pokes = document.querySelectorAll(".pkmn");
 	pokes.forEach((gaem) => {
 /*		
 		if (gaem.querySelector("img")){
 			gaem.querySelector("img").remove();
 		};
-*/
+
     		gaem.removeAttribute("hidden");
   	});
 };
+*/
 /*
 	### Insert Functions
  	- Img
@@ -120,7 +121,7 @@ function addGeneration(fromGen) {
 	pkmnlistEle.classList.add("pkmn-list");
 	pkmnlistEle.classList.add(Object.keys(fromGen));
 	fromGen.forEach((poke) => {
-		pkmnlistEle.appendChild(addPkmnInfo(poke), Object.keys(fromGen));
+		pkmnlistEle.appendChild(addPkmnInfo(poke, Object.keys(fromGen)));
 	});
 	return pkmnlistEle;
 };
@@ -160,8 +161,6 @@ function addPkmnInfo(Pkmninfo, gen) {
 const debugLine = document.querySelector("#inserthere");
 const JSONfile = 'pkmnteams.json';
 
-if(debug){console.log(importList);}
-if(debug){console.log(genList);}
 async function importAllTeams () {
 	let importList = await fetch(JSONfile)
   		.then(res => {
@@ -175,7 +174,9 @@ async function importAllTeams () {
 	  		console("Hmm, this problem happened...: " + err)
 			return [];
   		});
-	importList.forEach((gen) => {
+	importData.forEach((gen) => {
 		mainEle.appendChild(addGeneration(gen));
 	});
+	if(debug){console.log(importData);}
+	if(debug){console.log(genList);}
 };
