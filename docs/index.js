@@ -169,8 +169,8 @@ function importAllTeams() {
 			debugLine.innerHTML = "Data Imported.";
 			if(debug){console.log(Object.entries(importData))}
 			if(debug){console.log(genList)}
-			Object.entries(importData).forEach((i) => {
-				console.log(i);
+			Object.entries(importData).forEach(([i, j]) => {
+				console.log(i, j);
 			})
 			/*
 			Object.entries(importData).forEach(([gen, pkmnlist]) => {
