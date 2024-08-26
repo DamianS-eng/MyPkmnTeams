@@ -121,7 +121,7 @@ function addGeneration(fromGen, pkmnList) {
 	pkmnlistEle.classList.add("pkmn-list");
 	pkmnlistEle.classList.add(fromGen);
 	pkmnList.forEach((poke) => {
-		pkmnlistEle.appendChild(addPkmnInfo(pkmnList, fromGen));
+		pkmnlistEle.appendChild(addPkmnInfo(poke, fromGen));
 	});
 	return pkmnlistEle;
 };
