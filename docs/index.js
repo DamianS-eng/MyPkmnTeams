@@ -167,11 +167,11 @@ function importAllTeams() {
    			return res.json();
   		}).then((importData) => {
 			debugLine.innerHTML = "Data Imported.";
-			if(debug){console.log(importData);}
-			if(debug){console.log(genList);}		
-			for (let gen in importData) {
-				mainEle.appendChild(addGeneration(gen, importData[gen]));
-			};
+			if(debug){console.log(importData)}
+			if(debug){console.log(genList)}		
+			for (let [gen, pkmnlist] of Object.entries(importData)) {
+				mainEle.appendChild(addGeneration(gen, pkmnlist))
+			}
   		}).catch(err => {
 	  		console.log("Hmm, this problem happened...: " + err)
 			return '404';
