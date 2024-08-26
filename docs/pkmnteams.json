@@ -79,12 +79,12 @@
 			"nick": "Lout",
 			"num": "186",
 			"nature": "Modest",
-			"moves": {
+			"moves": [
 				"1": "Thief",
 				"2": "Mist",
 				"3": "Surf",
 				"4": "Ice Beam"
-			}
+			]
 		},
 		{
 			"name": "Skarmory",
@@ -153,12 +153,12 @@
 			"nick": "",
 			"num": "186",
 			"nature": "",
-			"moves": {
+			"moves": [
 				"1": "Dragon Claw",
 				"2": "Thunder Punch",
 				"3": "Leaf Blade",
 				"4": "Pursuit"
-			}
+			]
 		},
 		{
 			"name": "Blazekin",
@@ -227,12 +227,12 @@
 			"nick": "",
 			"num": "197",
 			"nature": "",
-			"moves": {
+			"moves": [
 				"1": "",
 				"2": "",
 				"3": "",
 				"4": ""
-			}
+			]
 		},
 		{
 			"name": "Quilava",
@@ -425,12 +425,12 @@
 			"nick": "",
 			"num": "901",
 			"nature": "",
-			"moves": {
+			"moves": [
 				"1": "",
 				"2": "",
 				"3": "",
 				"4": ""
-			}
+			]
 		},
 		{
 			"name": "",
