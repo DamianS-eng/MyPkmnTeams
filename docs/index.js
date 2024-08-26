@@ -118,17 +118,15 @@ function addPkmnImg(pkmnno, name, gaem) {
 };
 function addGeneration(fromGen, pkmnList) {
 	const pkmnlistEle = document.createElement("ul");
-	console.log(fromGen, pkmnList);
 	pkmnlistEle.classList.add("pkmn-list");
 	pkmnlistEle.classList.add(fromGen);
-	/*
 	pkmnList.forEach((poke) => {
 		pkmnlistEle.appendChild(addPkmnInfo(pkmnList, fromGen));
 	});
- 	*/
 	return pkmnlistEle;
 };
 function addPkmnInfo(Pkmninfo, gen) {
+	if(debug){console.log(Pkmninfo, gen)}
 	const pokeEle = document.createElement("li");
 	pokeEle.classList.add("pkmn");
 	const pokeInfoEle = document.createElement("div");
@@ -172,7 +170,6 @@ function importAllTeams() {
 			debugLine.innerHTML = "Data Imported.";
 			if(debug){console.log(genList)}
 			Object.entries(importData).forEach(([i, j]) => {
-				if(debug){console.log(i, j)}
 				mainEle.appendChild(addGeneration(i, j))
 			})
   		}).catch(err => {
