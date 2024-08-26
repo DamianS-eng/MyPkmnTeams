@@ -156,10 +156,26 @@ function addPkmnInfo(Pkmninfo, gen) {
 	pokeEle.appendChild(addPkmnImg(Pkmninfo.num, Pkmninfo.name, gen));
 	return pokeEle;
 };
+/* Async Import */
+const debugLine = document.querySelector("#inserthere");
+const JSONfile = 'pkmnteams.json';
+
 if(debug){console.log(importList);}
 if(debug){console.log(genList);}
-importList.then(function (pkmnList) {
-	pkmnList.forEach((gen) => {
+async function importAllTeams () {
+	let importList = await fetch(JSONfile)
+  		.then(res => {
+   			return res.json();
+  		})
+  		.then(importData => {
+			debugLine.innerHTML = "Data Imported.";
+			return importData;
+  		})
+  		.catch(err => {
+	  		console("Hmm, this problem happened...: " + err)
+			return [];
+  		});
+	importList.forEach((gen) => {
 		mainEle.appendChild(addGeneration(gen));
 	});
-});
+};
