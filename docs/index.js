@@ -1,3 +1,4 @@
+const debug = true;
 /*
 	Each Pkmn is a data object with:
 		pkmn sprite retrieved from species name
@@ -8,56 +9,23 @@
 // On November 2023, startViewTransition does not work on Safari or Firefox, don't bother with ViewAPI
 
 const filterList = document.querySelector(".filter");
-const filterButtons = filterList.querySelectorAll(".filter-btn");
-const titles = document.querySelectorAll(".pkmn");
+const mainEle = document.querySelector("main");
+let genList = document.querySelectorAll(".pkmn-list");
+let filterButtons = filterList.querySelectorAll(".filter-btn");
 let activeButton = filterList.querySelector(".active");
-let importTeam = {}
-
-const genList = document.querySelectorAll(".pkmn-list");
+let pokes = document.querySelectorAll(".pkmn");
 
 /* gaem.dataset.pkmn-no*/
 const sitesource = 'https://serebii.net';
 const imglinks = {
-	Gen1: 	'src="'+ sitesource + '/pokearth/sprites/rb/'+ '000' + '.png"',
-	Gen2: 	'src="'+ sitesource + '/pokearth/sprites/gold/'+ '000' + '.png"',
-	Gen3: 	'src="'+ sitesource + '/emerald/pokemon/'+ '000' + '.png"',
-	Colloseum: 'src="'+ sitesource + '/emerald/pokemon/'+ '000' + '.png"',
-	Gen4: 	'src="'+ sitesource + '/pokearth/sprites/hgss/'+ '000' + '.png"',
-	Gen6: 	'src="'+ sitesource + '/xy/pokemon/'+ '000' + '.png"',
-	Legends: 'src="'+ sitesource + '/swordshield/pokemon/'+ '000' + '.png"'
+	Gen1: 	sitesource + '/pokearth/sprites/rb/'+ '000' + '.png',
+	Gen2: 	sitesource + '/pokearth/sprites/gold/'+ '000' + '.png',
+	Gen3: 	sitesource + '/emerald/pokemon/'+ '000' + '.png',
+	Colloseum: sitesource + '/emerald/pokemon/'+ '000' + '.png',
+	Gen4: 	sitesource + '/pokearth/sprites/hgss/'+ '000' + '.png',
+	Gen6: 	sitesource + '/xy/pokemon/'+ '000' + '.png',
+	Legends: sitesource + '/swordshield/pokemon/'+ '000' + '.png'
 };
-
-const JSONfile = 'pkmnteams.json';
-const getJSON = function(url, callback) {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.responseType = 'json';
-    xhr.onload = function() {
-      if (xhr.status === 200) {
-        callback(null, xhr.response);
-		return;
-      } 
-	callback(status, xhr.response);
-    };
-    xhr.send();
-};
-
-getJSON(JSONfile, function(err, data) {
-	if (err !== null) {
-		alert("Hmm..." + err);
-		return;
-	}
-	importTeam = data;
-	for (const gen in filterList.children){
-		console.log(gen.innerHTML);
-	};
-	for (const gen in importTeam) {
-		console.log(`${gen}: ${importTeam[gen].length}`);
-		for (const poke in importTeam[gen]){
-  			console.log(`${importTeam[gen][poke].name}`);
-  		};
-	};
-});
 
 document.querySelector(':root').style
     .setProperty('--windowwidth', window.innerWidth+'px');
@@ -67,64 +35,155 @@ window.addEventListener('resize', function(event){
     .setProperty('--windowwidth', window.innerWidth+'px');
 });
 
-function clickFilter(e) {
-  const clickedButton = e.dataset.filter;
-  // console.log("Clicked: " + clickedButton);
+/*
+## Functions
+*/
+
+/*
+### Navigation Functions
+- Filter events
+- Event Listener for Filter Buttons
+- Change and get Active filter button
+*/
+function addGenNav(newGen){
+	const genEle = document.createElement("li");
+	const genBtn = document.createElement("button");
+	genBtn.classList.add("filter-btn");
+	genBtn.setAttribute("name", newGen);
+	genBtn.innerHTML = newGen;
+	genEle.appendChild(genBtn);
+	return(genEle);
+};
+function filterEvents(clickedFilterName) {
+	genList = document.querySelectorAll(".pkmn-list");
+  if (clickedFilterName === "All") {
+    loadAll();
+    return;
+  };
+  genList.forEach((gaem) => {
+    const generation = gaem.classList;
+    gaem.setAttribute("hidden", "");
+    if (gaem.classList.contains(clickedFilterName)) {
+	  	gaem.removeAttribute("hidden");	  
+    };
+  });
+};
+function clickFilter(event) {
+	if(event.name === "All") {
+		changeActive(event);
+		filterEvents("All");
+		return;
+	}
   if (!document.startViewTransition) {
-    changeActive(e);
-    filterEvents(clickedButton);
+    changeActive(event.currentTarget);
+    filterEvents(event.currentTarget.name);
     return;
   };
   document.startViewTransition(() => {
-    changeActive(e);
-    filterEvents(clickedButton);    
+    changeActive(event.currentTarget);
+    filterEvents(event.currentTarget.name);    
   });
 };
-function changeActive(clicked) {
+function changeActive(clickedButton) {
+	/*
+	if (clickedButton.contains("active")){return;}
+ 	*/
   activeButton.classList.remove("active");
-  clicked.classList.add("active");
+  clickedButton.classList.add("active");
   getActiveButton();
 };
 function getActiveButton() {
   activeButton = filterList.querySelector(".active");
 };
+/*
+	### Onload
+*/
+
 function loadAll() {
-	titles.forEach((gaem) => {
-	if (gaem.querySelector("img")){
-		gaem.querySelector("img").remove();
-	};
-	gaem.innerHTML += addPkmnImg(gaem);
-    gaem.removeAttribute("hidden");
+  genList.forEach((gaem) => {
+    const generation = gaem.name;
+  	gaem.removeAttribute("hidden");
   });
-}
-function addPkmnImg(gaem) {
-	let temString = imglinks[gaem.dataset.category];
-	temString = temString.replace(/000/g,gaem.dataset.pkmnno);
-	return ('<img ' + temString + ' alt= '+ gaem.dataset.pkmnname +'>');
 };
-function addPkmnInfo(Pkmninfo) {
-//	Query select <ul> of corresponding generation, check Class List of <ul> (genList)
+/*
+	### Insert Functions
+ 	- Img
+  	- generation to main
+    - pokes to generation
+	- pokeinfo to poke
+*/
+function addPkmnImg(pkmnno, name, gaem) {
+	const imgEle = document.createElement("img");
+	let temString = imglinks[gaem];
+	temString = temString.replace(/000/g, pkmnno);
+	imgEle.src = temString;
+	imgEle.alt = name;
+	return (imgEle);
+};
+function addGeneration(fromGen, pkmnList) {
+	const pkmnlistEle = document.createElement("ul");
+	pkmnlistEle.classList.add("pkmn-list");
+	pkmnlistEle.classList.add(fromGen);
+	pkmnList.forEach((poke) => {
+		pkmnlistEle.appendChild(addPkmnInfo(poke, fromGen));
+	});
+	return pkmnlistEle;
+};
+function addPkmnInfo(Pkmninfo, gen) {
+	const pokeEle = document.createElement("li");
+	pokeEle.classList.add("pkmn");
+	const pokeInfoEle = document.createElement("div");
+	pokeInfoEle.classList.add("pkmn-info");
+	const pokeInfoHead = document.createElement("h3");
+	pokeInfoHead.classList.add("pkmn-name");
+	const pokeInfoNick = document.createElement("span"), pokeInfoNature = document.createElement("span");
+	pokeInfoNick.classList.add("pkmn-nick");
+	pokeInfoNick.innerHTML = Pkmninfo.nick;
+	pokeInfoNature.classList.add("pkmn-nature");
+	pokeInfoNature.innerHTML = Pkmninfo.nature;
+	pokeInfoHead.appendChild(pokeInfoNick);
+	const theEle = document.createElement("span");
+	theEle.innerHTML = " the ";
+	pokeInfoHead.appendChild(theEle);
+	pokeInfoHead.appendChild(pokeInfoNature);
+	const pokeMovesEle = document.createElement("ul");
+	pokeMovesEle.classList.add("pkmn-info-moves");
+	Pkmninfo.moves.forEach((move) => {
+		const movesEle = document.createElement("li");
+		movesEle.classList.add("pkmn-move");
+		movesEle.innerHTML = move;
+		pokeMovesEle.appendChild(movesEle);
+	});
 //	For each poke
 //	Create list item
 //	  Inside poke-info,
 //	    Fill innerHTML of pkmn-nick, pkmn-nature
 //	    Fill innerHTML of each list item (move)
+	pokeInfoEle.appendChild(pokeInfoHead);
+	pokeInfoEle.appendChild(pokeMovesEle);
+	pokeEle.appendChild(pokeInfoEle);
+	pokeEle.appendChild(addPkmnImg(Pkmninfo.num, Pkmninfo.name, gen));
+	return pokeEle;
 };
-function filterEvents(clickedFilter) {
-  if (clickedFilter === "All") {
-    loadAll();
-    return;
-  };
-  titles.forEach((gaem) => {
-    const gaemCategory = gaem.dataset.category;
-    gaem.setAttribute("hidden", "");
-	if (gaem.querySelector("img")){
-		gaem.querySelector("img").remove();
-	};
-    if (clickedFilter === gaemCategory) {
-	  gaem.innerHTML += addPkmnImg(gaem);
-	  gaem.removeAttribute("hidden");	  
-    };
-  });
+/* Async Import */
+const debugLine = document.querySelector("#inserthere");
+const JSONfile = 'pkmnteams.json';
+
+function importAllTeams() {
+	fetch(JSONfile)
+  		.then((res) => {
+   			return res.json();
+  		}).then((importData) => {
+			debugLine.innerHTML = "Data Imported.";
+			Object.entries(importData).forEach(([i, j]) => {
+				filterList.appendChild(addGenNav(i));
+				mainEle.appendChild(addGeneration(i, j))
+			})
+			filterButtons = filterList.querySelectorAll(".filter-btn");
+			filterButtons.forEach((i) => {i.addEventListener('click', clickFilter);});
+			genList = document.querySelectorAll(".pkmn-list");
+  		}).catch(err => {
+	  		console.log("Hmm, this problem happened...: " + err)
+			return '404';
+  		});
 };
-console.log(genList)

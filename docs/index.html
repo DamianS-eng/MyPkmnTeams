@@ -1,182 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 <head>
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>DamianS Pkmn Teams</title>
 	<meta name="description" content="My teams, across the generations">
+	<meta name="color-scheme" content="light dark" />
+	<meta name="theme-color" media="prefers-color-scheme: light" content="blue" />
+	<meta name="theme-color" media="prefers-color-scheme: dark" content="red" />	
 	<link rel="stylesheet" href="./style.css"/>
 	<link rel="icon" type="image/ico" href="./image.ico"/>
 	<script src="./index.js" defer>
 		let FF_FOUC_FIX;
-	</script>
-	<script src="./importTeam.js" defer></script>	
+	</script>	
 </head>
-<body onload="loadAll()">
+<body onload="importAllTeams()">
 	<header>
 		<h1>My Teams</h1>
 		<nav class="navigation filter">
-		  <li><button class="filter-btn active" data-filter="All" onclick="clickFilter(this)">All</button></li>
-		  <li><button class="filter-btn" data-filter="Gen1" onclick="clickFilter(this)">Gen 1</button></li>
-		  <li><button class="filter-btn" data-filter="Gen2" onclick="clickFilter(this)">Gen 2</button></li>
-		  <li><button class="filter-btn" data-filter="Gen3" onclick="clickFilter(this)">Gen 3</button></li>
-		  <li><button class="filter-btn" data-filter="Colloseum" onclick="clickFilter(this)">Colloseum</button></li>
-		  <li><button class="filter-btn" data-filter="Gen4" onclick="clickFilter(this)">Gen 4</button></li>
-		  <li><button class="filter-btn" data-filter="Gen6" onclick="clickFilter(this)">Gen 6</button></li>
-		  <li><button class="filter-btn" data-filter="Legends" onclick="clickFilter(this)">Legends</button></li>
+		  <li><button class="filter-btn active" name="All" onclick="clickFilter(this)">All</button></li>
 		</nav>
 	</header>
 	<section>
 		<p id="inserthere"></p>
 	</section>
 	<main>
-		<ul class="pkmn-list Gen1" data-gen1>
-		  <li class="pkmn" 
-			data-category="Gen1"
-			data-pkmnname="Gengar"
-			data-pkmnno="094"
-			data-pkmnnick="Spooky"
-			data-pkmnnature="Modest"
-			data-pkmnmove1="Mega Drain"
-			data-pkmnmove2="Thunderbolt"
-			data-pkmnmove3="Psychic"
-			data-pkmnmove4="Subsitite"
-			>
-			<div class="pkmn-info">
-				<h3 class="pkmn-name"><span class="pkmn-nick">Spooky</span> the <span class="pkmn-nature">Modest</span></h3>
-				<p class="pkmn-move">Mega Drain</p>
-				<p class="pkmn-move">Thunderbolt</p>
-				<p class="pkmn-move">Psychic</p>
-				<p class="pkmn-move">Substitute</p>
-			</div>			
-			</li>
-		</ul>
-		<ul class="pkmn-list Gen2" data-gen2>
-		  <li class="pkmn" 
-			data-category="Gen2"
-			data-pkmnname="Politoed"
-			data-pkmnno="186"
-			data-pkmnnick=""
-			data-pkmnnature=""
-			data-pkmnmove1=""
-			data-pkmnmove2=""
-			data-pkmnmove3=""
-			data-pkmnmove4=""
-			>
-			<div class="pkmn-info">
-				<h3 class="pkmn-name"><span class="pkmn-nick"></span>the<span class="pkmn-nature"></span></h3>
-				<p class="pkmn-move"></p>
-				<p class="pkmn-move"></p>
-				<p class="pkmn-move"></p>
-				<p class="pkmn-move"></p>
-			</div>			
-			</li>		
-		</ul>
-		<ul class="pkmn-list Gen3" data-gen3>
-		  <li class="pkmn" 
-			data-category="Gen3"
-			data-pkmnname="Sceptile"
-			data-pkmnno="254"
-			data-pkmnnick=""
-			data-pkmnnature=""
-			data-pkmnmove1=""
-			data-pkmnmove2=""
-			data-pkmnmove3=""
-			data-pkmnmove4=""
-			>
-			<div class="pkmn-info">
-				<h3 class="pkmn-name"><span class="pkmn-nick"></span>the<span class="pkmn-nature"></span></h3>
-				<p class="pkmn-move"></p>
-				<p class="pkmn-move"></p>
-				<p class="pkmn-move"></p>
-				<p class="pkmn-move"></p>
-			</div>			
-			</li>		
-		</ul>
-		<ul class="pkmn-list Colloseum" data-colloseum>
-		  <li class="pkmn" 
-			data-category="Colloseum"
-			data-pkmnname="Umbreon"
-			data-pkmnno="197"
-			data-pkmnnick=""
-			data-pkmnnature=""
-			data-pkmnmove1=""
-			data-pkmnmove2=""
-			data-pkmnmove3=""
-			data-pkmnmove4=""
-			>
-			<div class="pkmn-info">
-				<h3 class="pkmn-name"><span class="pkmn-nick"></span>the<span class="pkmn-nature"></span></h3>
-				<p class="pkmn-move"></p>
-				<p class="pkmn-move"></p>
-				<p class="pkmn-move"></p>
-				<p class="pkmn-move"></p>
-			</div>			
-			</li>		
-		</ul>
-		<ul class="pkmn-list Gen4" data-gen4>
-		  <li class="pkmn" 
-			data-category="Gen4"
-			data-pkmnname="Manectric"
-			data-pkmnno="310"
-			data-pkmnnick=""
-			data-pkmnnature=""
-			data-pkmnmove1=""
-			data-pkmnmove2=""
-			data-pkmnmove3=""
-			data-pkmnmove4=""
-			>
-			<div class="pkmn-info">
-				<h3 class="pkmn-name"><span class="pkmn-nick"></span>the<span class="pkmn-nature"></span></h3>
-				<p class="pkmn-move"></p>
-				<p class="pkmn-move"></p>
-				<p class="pkmn-move"></p>
-				<p class="pkmn-move"></p>
-			</div>				
-			</li>		
-		</ul>	
-		<ul class="pkmn-list Gen6" data-gen6>
-		  <li class="pkmn" 
-			data-category="Gen6"
-			data-pkmnname="Greninja"
-			data-pkmnno="658"
-			data-pkmnnick=""
-			data-pkmnnature=""
-			data-pkmnmove1=""
-			data-pkmnmove2=""
-			data-pkmnmove3=""
-			data-pkmnmove4=""
-			>
-			<div class="pkmn-info">
-				<h3 class="pkmn-name"><span class="pkmn-nick"></span>the<span class="pkmn-nature"></span></h3>
-				<p class="pkmn-move"></p>
-				<p class="pkmn-move"></p>
-				<p class="pkmn-move"></p>
-				<p class="pkmn-move"></p>
-			</div>				
-			</li>		
-		</ul>	
-		<ul class="pkmn-list Legends" data-legends>
-		  <li class="pkmn" 
-			data-category="Legends"
-			data-pkmnname="Ursaluna"
-			data-pkmnno="901"
-			data-pkmnnick=""
-			data-pkmnnature=""
-			data-pkmnmove1=""
-			data-pkmnmove2=""
-			data-pkmnmove3=""
-			data-pkmnmove4=""
-			>
-			<div class="pkmn-info">
-				<h3 class="pkmn-name"><span class="pkmn-nick"></span>the<span class="pkmn-nature"></span></h3>
-				<p class="pkmn-move"></p>
-				<p class="pkmn-move"></p>
-				<p class="pkmn-move"></p>
-				<p class="pkmn-move"></p>
-			</div>
-			</li>
-		</ul>			
 	</main>
 	<footer>
 	<br />
