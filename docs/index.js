@@ -169,9 +169,9 @@ function importAllTeams() {
 			debugLine.innerHTML = "Data Imported.";
 			if(debug){console.log(importData)}
 			if(debug){console.log(genList)}		
-			for (let [gen, pkmnlist] of Object.entries(importData)) {
+			Object.entries(importData).forEach(([gen, pkmnlist]) => {
 				mainEle.appendChild(addGeneration(gen, pkmnlist))
-			}
+			})
   		}).catch(err => {
 	  		console.log("Hmm, this problem happened...: " + err)
 			return '404';
