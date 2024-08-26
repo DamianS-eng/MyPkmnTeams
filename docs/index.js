@@ -63,14 +63,13 @@ function filterEvents(clickedFilterName) {
   genList.forEach((gaem) => {
     const generation = gaem.classList;
     gaem.setAttribute("hidden", "");
-		if(debug){console.log(clickedFilterName);}
-		if(debug){console.log(generation);}
     if (gaem.classList.contains(clickedFilterName)) {
 	  	gaem.removeAttribute("hidden");	  
     };
   });
 };
 function clickFilter(event) {
+	if(debug){console.log(event)};
   if(debug){console.log(event.currentTarget);}
   if (!document.startViewTransition) {
     changeActive(event.currentTarget);
@@ -128,7 +127,6 @@ function addGeneration(fromGen, pkmnList) {
 	return pkmnlistEle;
 };
 function addPkmnInfo(Pkmninfo, gen) {
-	if(debug){console.log(Pkmninfo, gen)}
 	const pokeEle = document.createElement("li");
 	pokeEle.classList.add("pkmn");
 	const pokeInfoEle = document.createElement("div");
@@ -181,7 +179,6 @@ function importAllTeams() {
 			filterButtons = filterList.querySelectorAll(".filter-btn");
 			filterButtons.forEach((i) => {i.addEventListener('click', clickFilter);});
 			genList = document.querySelectorAll(".pkmn-list");
-			if(debug){console.log(genList)}
   		}).catch(err => {
 	  		console.log("Hmm, this problem happened...: " + err)
 			return '404';
