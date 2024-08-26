@@ -167,10 +167,10 @@ function importAllTeams() {
    			return res.json();
   		}).then((importData) => {
 			debugLine.innerHTML = "Data Imported.";
-			if(debug){console.log(Object.entries(importData))}
 			if(debug){console.log(genList)}
 			Object.entries(importData).forEach(([i, j]) => {
-				console.log(i, j);
+				if(debug){console.log(i, j)}
+				mainEle.appendChild(addGeneration(i, j))
 			})
 			/*
 			Object.entries(importData).forEach(([gen, pkmnlist]) => {
