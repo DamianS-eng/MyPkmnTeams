@@ -69,8 +69,11 @@ function filterEvents(clickedFilterName) {
   });
 };
 function clickFilter(event) {
-	if(debug){console.log(event)};
-  if(debug){console.log(event.currentTarget);}
+	if(event.name === "All") {
+		changeActive(event);
+		filterEvents("All");
+		return;
+	}
   if (!document.startViewTransition) {
     changeActive(event.currentTarget);
     filterEvents(event.currentTarget.name);
