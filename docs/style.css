@@ -52,7 +52,6 @@ img {
   padding: .4em .5em;
   width: fit-content;
 	border-radius: .5rem;
-  /*transition: opacity var(--fade-time) ease-in-out;*/
   display: grid;
   /* compute the best widths for two columns based on reponsive sites */
   grid-template-columns: repeat(2, calc(var(--windowwidth)/8));
@@ -69,6 +68,7 @@ img {
   box-shadow: 0 0 .5rem rgb(0 0 0 / .2);
 }
 #backToTop {
+	user-select: none;
 	font-size: 2rem;
 	position: fixed;
 	bottom: 2rem;
@@ -117,5 +117,5 @@ img {
 	#backToTop:hover, #backToTop:focus-within {
 	opacity: 1;
 	box-shadow: 0 0 1rem silver;
-}	
+	}	
 }
