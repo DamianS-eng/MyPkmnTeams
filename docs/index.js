@@ -71,19 +71,21 @@ function filterEvents(clickedFilterName) {
   });
 };
 function clickFilter(event) {
-  if(debug){console.log("Clicked: " + event.currentTarget);}
+  if(debug){console.log(event.currentTarget);}
   if (!document.startViewTransition) {
-    changeActive(event.target);
-    filterEvents(event.target.name);
+    changeActive(event.currentTarget);
+    filterEvents(event.currentTarget.name);
     return;
   };
   document.startViewTransition(() => {
-    changeActive(event.target);
-    filterEvents(event.target.name);    
+    changeActive(event.currentTarget);
+    filterEvents(event.currentTarget.name);    
   });
 };
 function changeActive(clickedButton) {
-	if(clickedButton.contains("active")){return;}
+	/*
+	if (clickedButton.contains("active")){return;}
+ 	*/
   activeButton.classList.remove("active");
   clickedButton.classList.add("active");
   getActiveButton();
