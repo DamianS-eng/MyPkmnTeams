@@ -142,9 +142,9 @@ function addPkmnInfo(Pkmninfo, gen) {
 	const pokeMovesEle = document.createElement("ul");
 	pokeMovesEle.classList.add("pkmn-info-moves");
 	Pkmninfo.moves.forEach((move) => {
-		const moveEle = document.createElement("li");
-		moveEle.classList.add("pkmn-move");
-		moveEle.innerHTML = move;
+		const movesEle = document.createElement("li");
+		movesEle.classList.add("pkmn-move");
+		movesEle.innerHTML = move;
 		pokeMovesEle.appendChild(movesEle);
 	});
 //	For each poke
