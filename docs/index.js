@@ -55,6 +55,7 @@ function addGenNav(newGen){
 	return(genEle);
 };
 function filterEvents(clickedFilterName) {
+	genList = document.querySelectorAll(".pkmn-list");
   if (clickedFilterName === "All") {
     loadAll();
     return;
@@ -63,9 +64,6 @@ function filterEvents(clickedFilterName) {
     const generation = gaem.name;
     gaem.setAttribute("hidden", "");
     if (clickedFilterName === generation) {
-	/*
-	  gaem.innerHTML += addPkmnImg(gaem);
-   	*/
 	  	gaem.removeAttribute("hidden");	  
     };
   });
@@ -180,6 +178,7 @@ function importAllTeams() {
 			})
 			filterButtons = filterList.querySelectorAll(".filter-btn");
 			filterButtons.forEach((i) => {i.addEventListener('click', clickFilter);});
+			genList = document.querySelectorAll(".pkmn-list");
 			if(debug){console.log(genList)}
   		}).catch(err => {
 	  		console.log("Hmm, this problem happened...: " + err)
