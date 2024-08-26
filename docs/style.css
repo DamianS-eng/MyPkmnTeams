@@ -4,6 +4,9 @@
 }
 * {
 }
+html {
+	scroll-behavior: smooth;
+}
 footer {
   min-height: 50px;
   background: red;
@@ -48,6 +51,7 @@ img {
 .pkmn {
   padding: .4em .5em;
   width: fit-content;
+	border-radius: .5rem;
   /*transition: opacity var(--fade-time) ease-in-out;*/
   display: grid;
   /* compute the best widths for two columns based on reponsive sites */
@@ -65,18 +69,19 @@ img {
   box-shadow: 0 0 .5rem rgb(0 0 0 / .2);
 }
 #backToTop {
+	font-size: 2rem;
 	position: fixed;
 	bottom: 2rem;
 	right: 1rem;
 	border-radius: 1rem;
 	opacity: .6;
 	cursor: pointer;
-	transition: opacity 300ms ease-in-out, box-shadow-color 300ms ease-in-out;
+	transition: opacity 300ms ease-in-out, box-shadow 300ms ease-in-out;
 	box-shadow: 0 0 1rem transparent;
 }
 #backToTop:hover, #backToTop:focus-within {
 	opacity: 1;
-	box-shadow-color: black;
+	box-shadow: 0 0 1rem black;
 }
 @media (hover:hover) {
   .filter-btn:hover, .filter-btn:focus {
@@ -109,4 +114,8 @@ img {
     padding: 1em .5em;
     grid-template-columns: repeat(2, 50%);
   }
+	#backToTop:hover, #backToTop:focus-within {
+	opacity: 1;
+	box-shadow: 0 0 1rem silver;
+}	
 }
