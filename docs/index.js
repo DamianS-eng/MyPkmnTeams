@@ -18,13 +18,13 @@ let pokes = document.querySelectorAll(".pkmn");
 /* gaem.dataset.pkmn-no*/
 const sitesource = 'https://serebii.net';
 const imglinks = {
-	Gen1: 	'src="'+ sitesource + '/pokearth/sprites/rb/'+ '000' + '.png"',
-	Gen2: 	'src="'+ sitesource + '/pokearth/sprites/gold/'+ '000' + '.png"',
-	Gen3: 	'src="'+ sitesource + '/emerald/pokemon/'+ '000' + '.png"',
-	Colloseum: 'src="'+ sitesource + '/emerald/pokemon/'+ '000' + '.png"',
-	Gen4: 	'src="'+ sitesource + '/pokearth/sprites/hgss/'+ '000' + '.png"',
-	Gen6: 	'src="'+ sitesource + '/xy/pokemon/'+ '000' + '.png"',
-	Legends: 'src="'+ sitesource + '/swordshield/pokemon/'+ '000' + '.png"'
+	Gen1: 	sitesource + '/pokearth/sprites/rb/'+ '000' + '.png"',
+	Gen2: 	sitesource + '/pokearth/sprites/gold/'+ '000' + '.png"',
+	Gen3: 	sitesource + '/emerald/pokemon/'+ '000' + '.png"',
+	Colloseum: sitesource + '/emerald/pokemon/'+ '000' + '.png"',
+	Gen4: 	sitesource + '/pokearth/sprites/hgss/'+ '000' + '.png"',
+	Gen6: 	sitesource + '/xy/pokemon/'+ '000' + '.png"',
+	Legends: sitesource + '/swordshield/pokemon/'+ '000' + '.png"'
 };
 
 document.querySelector(':root').style
@@ -111,10 +111,13 @@ function loadAll() {
 	- pokeinfo to poke
 */
 function addPkmnImg(pkmnno, name, gaem) {
+	const imgEle = document.createElement("img");
 	let temString = imglinks[gaem];
 	if(debug){console.log(temString)};
-	temString = temString.replace(/000/g,pkmnno);
-	return ('<img ' + temString + ' alt= '+ name +'>');
+	temString = temString.replace(/000/g, pkmnno);
+	imgEle.src = temString;
+	imgEle.alt = name;
+	return (imgEle);
 };
 function addGeneration(fromGen, pkmnList) {
 	const pkmnlistEle = document.createElement("ul");
