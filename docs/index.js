@@ -50,7 +50,6 @@ function addGenNav(newGen){
 	const genBtn = document.createElement("button");
 	genBtn.classList.add("filter-btn");
 	genBtn.setAttribute("name", newGen);
-	genBtn.addEventListener('click', clickFilter);
 	genBtn.innerHTML = newGen;
 	genEle.appendChild(genBtn);
 	return(genEle);
@@ -72,7 +71,7 @@ function filterEvents(clickedFilterName) {
   });
 };
 function clickFilter(event) {
-  if(debug){console.log("Clicked: " + event.target);}
+  if(debug){console.log("Clicked: " + event.currentTarget);}
   if (!document.startViewTransition) {
     changeActive(event.target);
     filterEvents(event.target.name);
@@ -178,7 +177,7 @@ function importAllTeams() {
 				mainEle.appendChild(addGeneration(i, j))
 			})
 			filterButtons = filterList.querySelectorAll(".filter-btn");
-			
+			filterButtons.forEach((i) => {i.addEventListener('click', clickFilter);});
 			if(debug){console.log(genList)}
   		}).catch(err => {
 	  		console.log("Hmm, this problem happened...: " + err)
