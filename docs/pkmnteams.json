@@ -80,10 +80,10 @@
 			"num": "186",
 			"nature": "Modest",
 			"moves": [
-				"1": "Thief",
-				"2": "Mist",
-				"3": "Surf",
-				"4": "Ice Beam"
+				"Thief",
+				"Mist",
+				"Surf",
+				"Ice Beam"
 			]
 		},
 		{
@@ -154,10 +154,10 @@
 			"num": "186",
 			"nature": "",
 			"moves": [
-				"1": "Dragon Claw",
-				"2": "Thunder Punch",
-				"3": "Leaf Blade",
-				"4": "Pursuit"
+				"Dragon Claw",
+				"Thunder Punch",
+				"Leaf Blade",
+				"Pursuit"
 			]
 		},
 		{
@@ -228,10 +228,10 @@
 			"num": "197",
 			"nature": "",
 			"moves": [
-				"1": "",
-				"2": "",
-				"3": "",
-				"4": ""
+				"",
+				"",
+				"",
+				""
 			]
 		},
 		{
@@ -266,7 +266,7 @@
 			"moves": [
 				"Dragon Claw",
 				"Earthquake",
-				"rock Slide",
+				"Rock Slide",
 				"Screech"
 			]
 		},
@@ -426,10 +426,10 @@
 			"num": "901",
 			"nature": "",
 			"moves": [
-				"1": "",
-				"2": "",
-				"3": "",
-				"4": ""
+				 "",
+				"",
+				"",
+				""
 			]
 		},
 		{
