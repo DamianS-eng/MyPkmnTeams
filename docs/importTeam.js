@@ -15,18 +15,13 @@ const getJSON = function(url, callback) {
     xhr.send();
 };
 
-getJSON(JSONfile, function(err, data) {
+getJSON(JSONfile, function(err, importTeam) {
 	if (err !== null) {
 		alert("Hmm..." + err);
-		const importTeam = {};
 		return;
 	}
-	const importTeam = data;
-	for (const gen in filterList.children){
-		console.log(gen.innerHTML);
-	};
 	for (const gen in importTeam) {
-		console.log(`${gen}: ${importTeam[gen].length}`);
+		console.log(`${gen}: ${importTeam[gen].length} pokes`);
 		for (const poke in importTeam[gen]){
   			console.log(`${importTeam[gen][poke].name}`);
   		};
@@ -37,8 +32,8 @@ fetch(JSONfile)
   .then(res => {
     return res.json();
   })
-  .then(data => {
-    console.log(data);
-		debugLine.innerHTML = "Data Imported.";
+  .then(importData => {
+    console.log(importData);
+	debugLine.innerHTML = "Data Imported.";
   })
   .catch(err => console("Hmm, this problem happened...: " + err));
