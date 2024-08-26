@@ -158,6 +158,8 @@ function addPkmnInfo(Pkmninfo, gen) {
 };
 if(debug){console.log(importList);}
 if(debug){console.log(genList);}
-importList.forEach((gen) => {
-	mainEle.appendChild(addGeneration(gen));
+importList.then(function (pkmnList) {
+	pkmnList.forEach((gen) => {
+		mainEle.appendChild(addGeneration(gen));
+	});
 });
