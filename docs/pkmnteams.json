@@ -2,7 +2,7 @@
 	"Gen1": [
 		{
 			"name": "Gengar",
-			"num": "186",
+			"num": "094",
 			"nick": "Spooky",
 			"nature": "Modest",
 			"moves": [
@@ -14,7 +14,7 @@
 		},
 		{
 			"name": "Starmie",
-			"num": "186",
+			"num": "121",
 			"nick": "Starman",
 			"nature": "Modest",
 			"moves": [
@@ -26,9 +26,9 @@
 		},
 		{
 			"name": "Rhydon",
-			"num": "186",
+			"num": "112",
 			"nick": "Runo",
-			"nature": "",
+			"nature": "Brave",
 			"moves": [
 				"Earthquake",
 				"Rock Slide",
@@ -38,7 +38,7 @@
 		},
 		{
 			"name": "Flareon",
-			"num": "186",
+			"num": "136",
 			"nick": "Pyra",
 			"nature": "Impish",
 			"moves": [
@@ -50,9 +50,9 @@
 		},
 		{
 			"name": "Primeape",
-			"num": "186",
+			"num": "057",
 			"nick": "DESTROY",
-			"nature": "",
+			"nature": "Adamant",
 			"moves": [
 				"Thrash",
 				"Submission",
@@ -62,7 +62,7 @@
 		},
 		{
 			"name": "Golbat",
-			"num": "186",
+			"num": "042",
 			"nick": "Winged",
 			"nature": "Jolly",
 			"moves": [
@@ -88,7 +88,7 @@
 		},
 		{
 			"name": "Skarmory",
-			"num": "186",
+			"num": "227",
 			"nick": "Metal",
 			"nature": "Naughty",
 			"moves": [
@@ -100,7 +100,7 @@
 		},
 		{
 			"name": "Houndoom",
-			"num": "186",
+			"num": "229",
 			"nick": "Ludo",
 			"nature": "Modest",
 			"moves": [
@@ -112,7 +112,7 @@
 		},
 		{
 			"name": "Girafarig",
-			"num": "186",
+			"num": "203",
 			"nick": "Nestle",
 			"nature": "Jolly",
 			"moves": [
@@ -124,7 +124,7 @@
 		},
 		{
 			"name": "Donphan",
-			"num": "186",
+			"num": "232",
 			"nick": "Fang",
 			"nature": "Adamant",
 			"moves": [
@@ -136,7 +136,7 @@
 		},
 		{
 			"name": "Jolteon",
-			"num": "186",
+			"num": "135",
 			"nick": "Razor",
 			"nature": "Timid",
 			"moves": [
@@ -151,7 +151,7 @@
 		{
 			"name": "Sceptile",
 			"nick": "",
-			"num": "186",
+			"num": "254",
 			"nature": "",
 			"moves": [
 				"Dragon Claw",
@@ -162,7 +162,7 @@
 		},
 		{
 			"name": "Blazekin",
-			"num": "186",
+			"num": "257",
 			"nick": "",
 			"nature": "",
 			"moves": [
@@ -174,7 +174,7 @@
 		},
 		{
 			"name": "Raichu",
-			"num": "186",
+			"num": "026",
 			"nick": "",
 			"nature": "",
 			"moves": [
@@ -186,7 +186,7 @@
 		},
 		{
 			"name": "Cloyster",
-			"num": "186",
+			"num": "091",
 			"nick": "",
 			"nature": "",
 			"moves": [
@@ -198,7 +198,7 @@
 		},
 		{
 			"name": "Aggron",
-			"num": "186",
+			"num": "306",
 			"nick": "",
 			"nature": "",
 			"moves": [
@@ -210,7 +210,7 @@
 		},
 		{
 			"name": "Shedinja",
-			"num": "186",
+			"num": "292",
 			"nick": "",
 			"nature": "",
 			"moves": [
@@ -236,7 +236,7 @@
 		},
 		{
 			"name": "Quilava",
-			"num": "186",
+			"num": "156",
 			"nick": "",
 			"nature": "",
 			"moves": [
@@ -248,7 +248,7 @@
 		},
 		{
 			"name": "Octilery",
-			"num": "186",
+			"num": "224",
 			"nick": "",
 			"nature": "",
 			"moves": [
@@ -260,7 +260,7 @@
 		},
 		{
 			"name": "Flygon",
-			"num": "186",
+			"num": "330",
 			"nick": "",
 			"nature": "",
 			"moves": [
@@ -272,7 +272,7 @@
 		},
 		{
 			"name": "Meganium",
-			"num": "186",
+			"num": "154",
 			"nick": "",
 			"nature": "",
 			"moves": [
@@ -284,7 +284,7 @@
 		},
 		{
 			"name": "Hariyama",
-			"num": "186",
+			"num": "297",
 			"nick": "",
 			"nature": "",
 			"moves": [
