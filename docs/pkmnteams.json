@@ -1,5 +1,5 @@
 {
-	"gen1": [
+	"Gen1": [
 		{
 			"name": "Gengar",
 			"num": "186",
@@ -73,7 +73,7 @@
 			]
 		}
 	],
-	"gen2": [
+	"Gen2": [
 		{
 			"name": "Politoed",
 			"nick": "Lout",
@@ -147,7 +147,7 @@
 			]
 		}
 	],
-	"gen3": [
+	"Gen3": [
 		{
 			"name": "Sceptile",
 			"nick": "",
@@ -221,7 +221,7 @@
 			]
 		}
 	],
-	"colloseum": [
+	"Colloseum": [
 		{
 			"name": "Umbreon",
 			"nick": "",
@@ -295,7 +295,7 @@
 			]
 		}
 	],
-	"gen4": [
+	"Gen4": [
 		{
 			"name": "",
 			"num": "186",
@@ -357,7 +357,7 @@
 			]
 		}
 	],
-	"gen6": [
+	"Gen6": [
 		{
 			"name": "",
 			"num": "186",
@@ -419,7 +419,7 @@
 			]
 		}
 	],
-	"legends": [
+	"Legends": [
 		{
 			"name": "Ursaluna",
 			"nick": "",
