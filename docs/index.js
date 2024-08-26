@@ -116,12 +116,12 @@ function addPkmnImg(pkmnno, name, gaem) {
 	temString = temString.replace(/000/g,pkmnno);
 	return ('<img ' + temString + ' alt= '+ name +'>');
 };
-function addGeneration(fromGen) {
+function addGeneration(fromGen, pkmnList) {
 	const pkmnlistEle = document.createElement("ul");
 	pkmnlistEle.classList.add("pkmn-list");
-	pkmnlistEle.classList.add(Object.keys(fromGen));
-	fromGen.forEach((poke) => {
-		pkmnlistEle.appendChild(addPkmnInfo(poke, Object.keys(fromGen)));
+	pkmnlistEle.classList.add(fromGen);
+	pkmnList.forEach((poke) => {
+		pkmnlistEle.appendChild(addPkmnInfo(poke, gen));
 	});
 	return pkmnlistEle;
 };
@@ -168,10 +168,10 @@ function importAllTeams() {
   		}).then((importData) => {
 			debugLine.innerHTML = "Data Imported.";
 			if(debug){console.log(importData);}
-			if(debug){console.log(genList);}			
-			importData.forEach((gen) => {
-				mainEle.appendChild(addGeneration(gen));
-			});
+			if(debug){console.log(genList);}		
+			for (let gen in importData) {
+				mainEle.appendChild(addGeneration(gen, importData[gen]));
+			};
   		}).catch(err => {
 	  		console.log("Hmm, this problem happened...: " + err)
 			return '404';
