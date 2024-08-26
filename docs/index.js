@@ -161,22 +161,19 @@ function addPkmnInfo(Pkmninfo, gen) {
 const debugLine = document.querySelector("#inserthere");
 const JSONfile = 'pkmnteams.json';
 
-async function importAllTeams () {
-	let importList = await fetch(JSONfile)
-  		.then(res => {
+function importAllTeams() {
+	fetch(JSONfile)
+  		.then((res) => {
    			return res.json();
-  		})
-  		.then(importData => {
+  		}).then((importData) => {
 			debugLine.innerHTML = "Data Imported.";
-			return importData;
-  		})
-  		.catch(err => {
+			if(debug){console.log(importData);}
+			if(debug){console.log(genList);}			
+			importData.forEach((gen) => {
+				mainEle.appendChild(addGeneration(gen));
+			});
+  		}).catch(err => {
 	  		console("Hmm, this problem happened...: " + err)
-			return [];
+			return '404';
   		});
-	importData.forEach((gen) => {
-		mainEle.appendChild(addGeneration(gen));
-	});
-	if(debug){console.log(importData);}
-	if(debug){console.log(genList);}
 };
