@@ -1,6 +1,9 @@
 const debugLine = document.querySelector("#inserthere");
-
+let importTeam = {};
 const JSONfile = 'pkmnteams.json';
+/*
+/ * Deprecated * /
+
 const getJSON = function(url, callback) {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
@@ -27,13 +30,16 @@ getJSON(JSONfile, function(err, importTeam) {
   		};
 	};
 });
-
-fetch(JSONfile)
+*/
+importTeam = fetch(JSONfile)
   .then(res => {
     return res.json();
   })
   .then(importData => {
-    console.log(importData);
 	debugLine.innerHTML = "Data Imported.";
+	return importData;
   })
-  .catch(err => console("Hmm, this problem happened...: " + err));
+  .catch(err => {
+	  console("Hmm, this problem happened...: " + err)
+	  /* importTeam = {}; */
+  });
