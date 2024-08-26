@@ -10,7 +10,7 @@ const debug = true;
 
 const filterList = document.querySelector(".filter");
 const mainEle = document.querySelector("main");
-const genList = document.querySelectorAll(".pkmn-list");
+let genList = document.querySelectorAll(".pkmn-list");
 let filterButtons = filterList.querySelectorAll(".filter-btn");
 let activeButton = filterList.querySelector(".active");
 let pokes = document.querySelectorAll(".pkmn");
@@ -46,7 +46,7 @@ window.addEventListener('resize', function(event){
 - Change and get Active filter button
 */
 function addGenNav(newGen){
-	const genEle = document.createElemenet("li");
+	const genEle = document.createElement("li");
 	const genBtn = document.createElement("button");
 	genBtn.classList.add("filter-btn");
 	genBtn.setAttribute("name", newGen);
@@ -60,7 +60,7 @@ function filterEvents(clickedFilter) {
     loadAll();
     return;
   };
-  filterButtons.forEach((gaem) => {
+  genList.forEach((gaem) => {
     const generation = gaem.name;
     gaem.setAttribute("hidden", "");
     if (clickedFilter === generation) {
@@ -99,7 +99,7 @@ function getActiveButton() {
 */
 
 function loadAll() {
-  filterButtons.forEach((gaem) => {
+  genList.forEach((gaem) => {
     const generation = gaem.name;
   	gaem.removeAttribute("hidden");
   });
@@ -115,7 +115,6 @@ function loadAll() {
 function addPkmnImg(pkmnno, name, gaem) {
 	const imgEle = document.createElement("img");
 	let temString = imglinks[gaem];
-	if(debug){console.log(temString)};
 	temString = temString.replace(/000/g, pkmnno);
 	imgEle.src = temString;
 	imgEle.alt = name;
@@ -177,12 +176,13 @@ function importAllTeams() {
    			return res.json();
   		}).then((importData) => {
 			debugLine.innerHTML = "Data Imported.";
-			if(debug){console.log(genList)}
 			Object.entries(importData).forEach(([i, j]) => {
 				filterList.appendChild(addGenNav(i));
 				mainEle.appendChild(addGeneration(i, j))
 			})
 			filterButtons = filterList.querySelectorAll(".filter-btn");
+			
+			if(debug){console.log(genList)}
   		}).catch(err => {
 	  		console.log("Hmm, this problem happened...: " + err)
 			return '404';
