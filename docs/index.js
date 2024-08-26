@@ -50,20 +50,20 @@ function addGenNav(newGen){
 	const genBtn = document.createElement("button");
 	genBtn.classList.add("filter-btn");
 	genBtn.setAttribute("name", newGen);
-	genBtn.addEventListener("click", clickFilter(this));
+	genBtn.addEventListener("click", clickFilter(genBtn));
 	genBtn.innerHTML = newGen;
 	genEle.appendChild(genBtn);
 	return(genEle);
 };
-function filterEvents(clickedFilter) {
-  if (clickedFilter.name === "All") {
+function filterEvents(clickedFilterName) {
+  if (clickedFilterName === "All") {
     loadAll();
     return;
   };
   genList.forEach((gaem) => {
     const generation = gaem.name;
     gaem.setAttribute("hidden", "");
-    if (clickedFilter === generation) {
+    if (clickedFilterName === generation) {
 	/*
 	  gaem.innerHTML += addPkmnImg(gaem);
    	*/
@@ -71,18 +71,16 @@ function filterEvents(clickedFilter) {
     };
   });
 };
-function clickFilter(e) {
-	if(debug){console.log(e)};
-  const clickedButton = e.name;
+function clickFilter(clickedButton) {
   if(debug){console.log("Clicked: " + clickedButton);}
   if (!document.startViewTransition) {
-    changeActive(e);
-    filterEvents(clickedButton);
+    changeActive(clickedButton);
+    filterEvents(clickedButton.name);
     return;
   };
   document.startViewTransition(() => {
-    changeActive(e);
-    filterEvents(clickedButton);    
+    changeActive(clickedButton);
+    filterEvents(clickedButton.name);    
   });
 };
 function changeActive(clicked) {
