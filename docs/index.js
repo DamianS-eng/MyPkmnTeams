@@ -18,13 +18,13 @@ let pokes = document.querySelectorAll(".pkmn");
 /* gaem.dataset.pkmn-no*/
 const sitesource = 'https://serebii.net';
 const imglinks = {
-	Gen1: 	sitesource + '/pokearth/sprites/rb/'+ '000' + '.png"',
-	Gen2: 	sitesource + '/pokearth/sprites/gold/'+ '000' + '.png"',
-	Gen3: 	sitesource + '/emerald/pokemon/'+ '000' + '.png"',
-	Colloseum: sitesource + '/emerald/pokemon/'+ '000' + '.png"',
-	Gen4: 	sitesource + '/pokearth/sprites/hgss/'+ '000' + '.png"',
-	Gen6: 	sitesource + '/xy/pokemon/'+ '000' + '.png"',
-	Legends: sitesource + '/swordshield/pokemon/'+ '000' + '.png"'
+	Gen1: 	sitesource + '/pokearth/sprites/rb/'+ '000' + '.png',
+	Gen2: 	sitesource + '/pokearth/sprites/gold/'+ '000' + '.png',
+	Gen3: 	sitesource + '/emerald/pokemon/'+ '000' + '.png',
+	Colloseum: sitesource + '/emerald/pokemon/'+ '000' + '.png',
+	Gen4: 	sitesource + '/pokearth/sprites/hgss/'+ '000' + '.png',
+	Gen6: 	sitesource + '/xy/pokemon/'+ '000' + '.png',
+	Legends: sitesource + '/swordshield/pokemon/'+ '000' + '.png'
 };
 
 document.querySelector(':root').style
@@ -141,7 +141,11 @@ function addPkmnInfo(Pkmninfo, gen) {
 	pokeInfoNick.innerHTML = Pkmninfo.nick;
 	pokeInfoNature.classList.add("pkmn-nature");
 	pokeInfoNature.innerHTML = Pkmninfo.nature;
-	pokeInfoHead.innerHTML = pokeInfoNick + " the " + pokeInfoNature;
+	pokeInfoHead.appendChild(pokeInfoNick);
+	const theEle = document.createElement("span");
+	theEle.innerHTML = " the ";
+	pokeInfoHead.appendChild(theEle);
+	pokeInfoHead.appendChild(pokeInfoNature);
 	const pokeMovesEle = document.createElement("ul");
 	pokeMovesEle.classList.add("pkmn-info-moves");
 	Pkmninfo.moves.forEach((move) => {
