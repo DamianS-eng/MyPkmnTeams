@@ -173,7 +173,7 @@ function importAllTeams() {
 				mainEle.appendChild(addGeneration(gen));
 			});
   		}).catch(err => {
-	  		console("Hmm, this problem happened...: " + err)
+	  		console.log("Hmm, this problem happened...: " + err)
 			return '404';
   		});
 };
