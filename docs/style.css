@@ -35,8 +35,12 @@ img {
 }
 .pkmn-list {
   list-style: none;
+	padding: none;
   margin-left: 3em;
   width: max-content;
+}
+.pkmn-list[hidden] {
+  display: none;
 }
 .pkmn {
   padding-top: .4em;
@@ -49,10 +53,6 @@ img {
   place-items: center;
   box-shadow: 0 0 2px 5px silver;
 }
-.pkmn[hidden] {
-  opacity: 0;
-  display: none;
-}
 .pkmn:not(:last-child) {
   /*border-bottom: 1px solid black;*/
 }
@@ -61,9 +61,6 @@ img {
   background: black;
   color: white;
   box-shadow: 0 0 .5rem rgb(0 0 0 / .2);
-}
-[hidden] {
-  opacity: 0;
 }
 @media (hover:hover) {
   .filter-btn:hover, .filter-btn:focus {
@@ -94,6 +91,6 @@ img {
   }
   .pkmn {
     padding-left: .5em;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: repeat(2, 50%);
   }
 }
