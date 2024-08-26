@@ -64,6 +64,20 @@ img {
   color: white;
   box-shadow: 0 0 .5rem rgb(0 0 0 / .2);
 }
+#backToTop {
+	position: fixed;
+	bottom: 2rem;
+	right: 1rem;
+	border-radius: 1rem;
+	opacity: .6;
+	cursor: pointer;
+	transition: opacity 300ms ease-in-out, box-shadow-color 300ms ease-in-out;
+	box-shadow: 0 0 1rem transparent;
+}
+#backToTop:hover, #backToTop:focus-within {
+	opacity: 1;
+	box-shadow-color: black;
+}
 @media (hover:hover) {
   .filter-btn:hover, .filter-btn:focus {
     background-color: snow;
