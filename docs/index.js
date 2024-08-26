@@ -50,7 +50,7 @@ function addGenNav(newGen){
 	const genBtn = document.createElement("button");
 	genBtn.classList.add("filter-btn");
 	genBtn.setAttribute("name", newGen);
-	genBtn.addEventListener("click", clickFilter(genBtn));
+	genBtn.addEventListener('click', clickFilter);
 	genBtn.innerHTML = newGen;
 	genEle.appendChild(genBtn);
 	return(genEle);
@@ -71,29 +71,28 @@ function filterEvents(clickedFilterName) {
     };
   });
 };
-function clickFilter(clickedButton) {
-  if(debug){console.log("Clicked: " + clickedButton);}
+function clickFilter(event) {
+  if(debug){console.log("Clicked: " + event.target);}
   if (!document.startViewTransition) {
-    changeActive(clickedButton);
-    filterEvents(clickedButton.name);
+    changeActive(event.target);
+    filterEvents(event.target.name);
     return;
   };
   document.startViewTransition(() => {
-    changeActive(clickedButton);
-    filterEvents(clickedButton.name);    
+    changeActive(event.target);
+    filterEvents(event.target.name);    
   });
 };
-function changeActive(clicked) {
-	if(clicked.contains("active")){return;}
+function changeActive(clickedButton) {
+	if(clickedButton.contains("active")){return;}
   activeButton.classList.remove("active");
-  clicked.classList.add("active");
+  clickedButton.classList.add("active");
   getActiveButton();
 };
 function getActiveButton() {
   activeButton = filterList.querySelector(".active");
-	/* remove eventListener so you can't reselect the filter */
 };
-/*
+
 	### Onload
 */
 
