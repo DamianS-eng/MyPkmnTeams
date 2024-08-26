@@ -45,22 +45,29 @@ window.addEventListener('resize', function(event){
 - Event Listener for Filter Buttons
 - Change and get Active filter button
 */
+function addGenNav(newGen){
+	const genEle = document.createElemenet("li");
+	const genBtn = document.createElement("button");
+	genBtn.classList.add("filter-btn");
+	genBtn.setAttribute("name", newGen);
+	genBtn.addEventListener("click", clickFilter(this));
+	genBtn.innerHTML = newGen;
+	genEle.appendChild(genBtn);
+	return(genEle);
+};
 function filterEvents(clickedFilter) {
   if (clickedFilter.name === "All") {
     loadAll();
     return;
   };
-  titles.forEach((gaem) => {
-    const gaemCategory = gaem.dataset.category;
+  filterButtons.forEach((gaem) => {
+    const generation = gaem.name;
     gaem.setAttribute("hidden", "");
-		if (gaem.querySelector("img")){
-			gaem.querySelector("img").remove();
-		};
-    if (clickedFilter === gaemCategory) {
+    if (clickedFilter === generation) {
 	/*
 	  gaem.innerHTML += addPkmnImg(gaem);
    	*/
-	  gaem.removeAttribute("hidden");	  
+	  	gaem.removeAttribute("hidden");	  
     };
   });
 };
@@ -78,31 +85,26 @@ function clickFilter(e) {
   });
 };
 function changeActive(clicked) {
+	if(clicked.contains("active")){return;}
   activeButton.classList.remove("active");
   clicked.classList.add("active");
   getActiveButton();
 };
 function getActiveButton() {
   activeButton = filterList.querySelector(".active");
+	/* remove eventListener so you can't reselect the filter */
 };
 /*
 	### Onload
 */
 
-	/*
- 		This may need to be an await function to wait on the .json load.
 function loadAll() {
-	pokes = document.querySelectorAll(".pkmn");
-	pokes.forEach((gaem) => {
-/*		
-		if (gaem.querySelector("img")){
-			gaem.querySelector("img").remove();
-		};
-
-    		gaem.removeAttribute("hidden");
-  	});
+  filterButtons.forEach((gaem) => {
+    const generation = gaem.name;
+  	gaem.removeAttribute("hidden");
+  });
 };
-*/
+
 /*
 	### Insert Functions
  	- Img
@@ -177,8 +179,10 @@ function importAllTeams() {
 			debugLine.innerHTML = "Data Imported.";
 			if(debug){console.log(genList)}
 			Object.entries(importData).forEach(([i, j]) => {
+				filterList.appendChild(addGenNav(i));
 				mainEle.appendChild(addGeneration(i, j))
 			})
+			filterButtons = filterList.querySelectorAll(".filter-btn");
   		}).catch(err => {
 	  		console.log("Hmm, this problem happened...: " + err)
 			return '404';
