@@ -89,7 +89,9 @@ function changeActive(clickedButton) {
 	if (clickedButton.contains("active")){return;}
  	*/
   activeButton.classList.remove("active");
+	activeButton.removeAttribute("tabindex");
   clickedButton.classList.add("active");
+	clickedButton.setAttribute("tabindex", -1);
   getActiveButton();
 };
 function getActiveButton() {
