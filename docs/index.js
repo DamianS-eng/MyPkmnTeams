@@ -92,7 +92,7 @@ function changeActive(clickedButton) {
 function getActiveButton() {
   activeButton = filterList.querySelector(".active");
 };
-
+/*
 	### Onload
 */
 
@@ -102,7 +102,6 @@ function loadAll() {
   	gaem.removeAttribute("hidden");
   });
 };
-
 /*
 	### Insert Functions
  	- Img
