@@ -1,5 +1,5 @@
 const debugLine = document.querySelector("#inserthere");
-let importTeam = {};
+let importList = {};
 const JSONfile = 'pkmnteams.json';
 /*
 / * Deprecated * /
@@ -31,7 +31,7 @@ getJSON(JSONfile, function(err, importTeam) {
 	};
 });
 */
-importTeam = fetch(JSONfile)
+importList = fetch(JSONfile)
   .then(res => {
     return res.json();
   })
