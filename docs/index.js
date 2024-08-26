@@ -72,6 +72,7 @@ function filterEvents(clickedFilter) {
   });
 };
 function clickFilter(e) {
+	if(debug){console.log(e)};
   const clickedButton = e.name;
   if(debug){console.log("Clicked: " + clickedButton);}
   if (!document.startViewTransition) {
