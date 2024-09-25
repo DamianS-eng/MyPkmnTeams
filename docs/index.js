@@ -71,7 +71,7 @@ function filterEvents(clickedFilterName) {
 	genHeaderList.forEach((header) => {
 		const headerName = header.innerHTML;
 		header.setAttribute("hidden","");
-		if (headerName.contains(clickedFilterName)) {
+		if (headerName == clickedFilterName) {
 			header.removeAttribute("hidden");
 		};
 	});
