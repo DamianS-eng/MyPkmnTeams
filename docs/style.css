@@ -56,7 +56,6 @@ img {
 }
 .pkmn {
   padding-inline: .7rem;
-	padding-bottom: 1.5rem;
 	margin-inline: .25rem;
 	border-radius: .5rem;
   box-shadow: 0 0 .5rem var(--clr-txt-tint);
@@ -65,7 +64,7 @@ img {
 	place-items: center;
 }
 .pkmn-info-moves {
-	padding: 0 1em;
+	padding: 1.15em;
 }
 .filter-btn.active {
   pointer-events: none;
