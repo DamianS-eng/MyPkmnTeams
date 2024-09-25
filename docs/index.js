@@ -56,6 +56,7 @@ function addGenNav(newGen){
 };
 function filterEvents(clickedFilterName) {
 	genList = document.querySelectorAll(".pkmn-list");
+	genHeaderList = document.querySelectorAll("h2");
   if (clickedFilterName === "All") {
     loadAll();
     return;
@@ -67,6 +68,13 @@ function filterEvents(clickedFilterName) {
 	  	gaem.removeAttribute("hidden");	  
     };
   });
+	genHeaderList.forEach((header) => {
+		const headerName = header.innerHTML;
+		header.setAttribute("hidden","");
+		if (headerName.contains(clickedFilterName)) {
+			header.removeAttribute("hidden");
+		};
+	});
 };
 function clickFilter(event) {
 	if(event.name === "All") {
