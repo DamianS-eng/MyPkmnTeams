@@ -51,7 +51,7 @@ img {
 .pkmn-list > * {
 	margin-bottom: .5em;
 }
-.pkmn-list[hidden] {
+.pkmn-list[hidden], h2[hidden] {
   display: none;
 }
 .pkmn {
