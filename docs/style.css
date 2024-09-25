@@ -1,6 +1,12 @@
 :root {
   --fade-time: 2s;
-  --windowwidth: 0;
+	--clr-bg: white;
+	--clr-bg-tint: snow;
+	--clr-txt: black;
+	--clr-txt-low-op: rgb(0,0,0,.2);
+	--clr-txt-gray: gray;
+	--clr-foot: red;
+	--clr-thm: lightblue;
 }
 * {
 }
@@ -8,24 +14,21 @@ html {
 	scroll-behavior: smooth;
 }
 footer {
-  min-height: 50px;
-  background: red;
+  min-height: 10ch;
+  background: var(--clr-foot);
 }
 header {
   container-type: inline-size;
-  background: gray;
+  background: var(--clr-txt-gray);
 }
 h1, h2, h3 {
   text-align: center;
 }
 nav {
-  width: 60%;
-  margin-inline: auto;
-  padding-inline: 2em;
   display: flex;
   place-content: space-between;
   list-style: none;
-  background-color: lightblue;
+  background-color: var(--clr-thm);
 }
 button {
   background: transparent;
@@ -33,7 +36,7 @@ button {
   padding-inline: .5em;
 }
 img {
-	max-width: 100%;
+max-width: 100%;
 	height: auto;
 }
 .pkmn-list {
@@ -41,31 +44,23 @@ img {
 	padding: 0;
   margin-left: 3em;
   margin-bottom: 2em;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25svw, 1fr) );
-  gap: 1rem;
 }
 .pkmn-list[hidden] {
   display: none;
 }
 .pkmn {
-  padding: .4em .5em;
-  width: fit-content;
+  padding: .7rem;
 	border-radius: .5rem;
-  display: grid;
-  /* compute the best widths for two columns based on reponsive sites */
-  grid-template-columns: repeat(2, calc(var(--windowwidth)/8));
-  place-items: center;
   box-shadow: 0 0 .5rem silver;
 }
 .pkmn:not(:last-child) {
-  /*border-bottom: 1px solid black;*/
+  /*border-bottom: 1px solid var(--clr-txt);*/
 }
 .filter-btn.active {
   pointer-events: none;
-  background: black;
-  color: white;
-  box-shadow: 0 0 .5rem rgb(0 0 0 / .2);
+  background: var(--clr-txt);
+  color: var(--clr-bg);
+  box-shadow: 0 0 .5rem var(--clr-txt-low-op);
 }
 #backToTop {
 	user-select: none;
@@ -81,41 +76,26 @@ img {
 }
 #backToTop:hover, #backToTop:focus-within {
 	opacity: 1;
-	box-shadow: 0 0 1rem black;
+	box-shadow: 0 0 1rem var(--clr-txt);
 }
 @media (hover:hover) {
   .filter-btn:hover, .filter-btn:focus {
-    background-color: snow;
-    color: black;
+    background-color: var(--clr-bg-tint);
+    color: var(--clr-txt);
     cursor: pointer;
     transform: scale(1.2);
   } 
 }
 @media (orientation:portrait) {
-  nav {
-    flex-wrap: wrap;
-    padding: 1em;
-  }
-  button {
-    padding: .1em;
-    margin-inline: .2em;
-    margin-bottom: .1em;
-    box-shadow: 1px 1px black;
-  }
-  .pkmn-list, .pkmn {
-    width: inherit;
-    padding: 0;
-  }
-  .pkmn-list {
-    display: block;
-    margin-inline: 5%;
-  }
-  .pkmn {
-    padding: 1em .5em;
-    grid-template-columns: repeat(2, 50%);
-  }
 	#backToTop:hover, #backToTop:focus-within {
-	opacity: 1;
 	box-shadow: 0 0 1rem silver;
 	}	
+}
+@media (prefers-color-scheme: dark) {
+	:root {
+	--clr-bg: black;
+	--clr-bg-tint: gray;
+	--clr-txt: white;
+	--clr-txt-gray: snow;
+	}
 }
