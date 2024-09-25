@@ -28,10 +28,12 @@ h1, h2, h3 {
   text-align: center;
 }
 nav {
+	padding: 1ch 0;
   display: flex;
   place-content: space-between;
   list-style: none;
   background-color: var(--clr-thm);
+	overflow-x: auto;
 }
 button {
   background: transparent;
