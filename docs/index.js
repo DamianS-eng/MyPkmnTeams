@@ -177,9 +177,12 @@ function importAllTeams() {
    			return res.json();
   		}).then((importData) => {
 			debugLine.innerHTML = "Data Imported.";
-			Object.entries(importData).forEach(([i, j]) => {
-				filterList.appendChild(addGenNav(i));
-				mainEle.appendChild(addGeneration(i, j))
+			Object.entries(importData).forEach(([gen, allPokesInGen]) => {
+				const genHeader = document.createElement("h2");
+				genHeader.innerHTML = gen;
+				filterList.appendChild(addGenNav(gen));
+				mainEle.appendChild(genHeader);
+				mainEle.appendChild(addGeneration(gen, allPokesInGen))
 			})
 			filterButtons = filterList.querySelectorAll(".filter-btn");
 			filterButtons.forEach((i) => {i.addEventListener('click', clickFilter);});
