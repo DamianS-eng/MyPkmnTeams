@@ -5,6 +5,7 @@
 	--clr-txt: black;
 	--clr-txt-low-op: rgb(0,0,0,.2);
 	--clr-txt-gray: gray;
+	--clr-txt-tint: silver;
 	--clr-foot: red;
 	--clr-thm: lightblue;
 }
@@ -44,8 +45,11 @@ max-width: 100%;
 .pkmn-list {
   list-style: none;
 	padding: 0;
-  margin-left: 3em;
+  margin-inline: .5em;
   margin-bottom: 2em;
+}
+.pkmn-list > * {
+	margin-bottom: .5em;
 }
 .pkmn-list[hidden] {
   display: none;
@@ -53,7 +57,7 @@ max-width: 100%;
 .pkmn {
   padding: .7rem;
 	border-radius: .5rem;
-  box-shadow: 0 0 .5rem silver;
+  box-shadow: 0 0 .5rem var(--clr-txt-tint);
 }
 .pkmn:not(:last-child) {
   /*border-bottom: 1px solid var(--clr-txt);*/
@@ -66,11 +70,12 @@ max-width: 100%;
 }
 #backToTop {
 	user-select: none;
-	font-size: 2rem;
+	font-size: 1.1rem;
 	position: fixed;
 	bottom: 2rem;
 	right: 1rem;
 	border-radius: 1rem;
+	padding: .5rem;
 	opacity: .6;
 	cursor: pointer;
 	transition: opacity 300ms ease-in-out, box-shadow 300ms ease-in-out;
@@ -90,7 +95,7 @@ max-width: 100%;
 }
 @media (orientation:portrait) {
 	#backToTop:hover, #backToTop:focus-within {
-	box-shadow: 0 0 1rem silver;
+	box-shadow: 0 0 1rem var(--clr-txt-tint);
 	}	
 }
 @media (prefers-color-scheme: dark) {
