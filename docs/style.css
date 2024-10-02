@@ -67,6 +67,11 @@ img {
 }
 .pkmn-info-moves {
 	padding: 1.15em;
+	border-radius: .5rem;
+  box-shadow: 0 0 .5rem var(--clr-txt-tint);
+}
+.pkmn:not(:last-child) {
+  border-bottom: 1px solid var(--clr-txt);
 }
 .filter-btn.active {
   pointer-events: none;
@@ -104,7 +109,7 @@ img {
 @media (orientation:portrait) {
 	#backToTop:hover, #backToTop:focus-within {
 	box-shadow: 0 0 1rem var(--clr-txt-tint);
-	}	
+	}
 }
 @media (width > 440px) {
 	.pkmn-list {
