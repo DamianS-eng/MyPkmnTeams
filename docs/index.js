@@ -11,6 +11,7 @@ const debug = true;
 const filterList = document.querySelector(".filter");
 const mainEle = document.querySelector("main");
 let genList = document.querySelectorAll(".pkmn-list");
+let genHeaderList = document.querySelectorAll("h2");
 let filterButtons = filterList.querySelectorAll(".filter-btn");
 let activeButton = filterList.querySelector(".active");
 let pokes = document.querySelectorAll(".pkmn");
@@ -56,6 +57,7 @@ function addGenNav(newGen){
 };
 function filterEvents(clickedFilterName) {
 	genList = document.querySelectorAll(".pkmn-list");
+	genHeaderList = document.querySelectorAll("h2");
   if (clickedFilterName === "All") {
     loadAll();
     return;
@@ -67,6 +69,13 @@ function filterEvents(clickedFilterName) {
 	  	gaem.removeAttribute("hidden");	  
     };
   });
+	genHeaderList.forEach((header) => {
+		const headerName = header.innerHTML;
+		header.setAttribute("hidden","");
+		if (headerName == clickedFilterName) {
+			header.removeAttribute("hidden");
+		};
+	});
 };
 function clickFilter(event) {
 	if(event.name === "All") {
@@ -103,9 +112,11 @@ function getActiveButton() {
 
 function loadAll() {
   genList.forEach((gaem) => {
-    const generation = gaem.name;
   	gaem.removeAttribute("hidden");
   });
+	genHeaderList.forEach((header) => {
+		header.removeAttribute("hidden");
+	});
 };
 /*
 	### Insert Functions
@@ -177,9 +188,12 @@ function importAllTeams() {
    			return res.json();
   		}).then((importData) => {
 			debugLine.innerHTML = "Data Imported.";
-			Object.entries(importData).forEach(([i, j]) => {
-				filterList.appendChild(addGenNav(i));
-				mainEle.appendChild(addGeneration(i, j))
+			Object.entries(importData).forEach(([gen, allPokesInGen]) => {
+				const genHeader = document.createElement("h2");
+				genHeader.innerHTML = gen;
+				filterList.appendChild(addGenNav(gen));
+				mainEle.appendChild(genHeader);
+				mainEle.appendChild(addGeneration(gen, allPokesInGen))
 			})
 			filterButtons = filterList.querySelectorAll(".filter-btn");
 			filterButtons.forEach((i) => {i.addEventListener('click', clickFilter);});

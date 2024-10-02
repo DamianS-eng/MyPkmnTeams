@@ -5,13 +5,16 @@
 	--clr-txt: black;
 	--clr-txt-low-op: rgb(0,0,0,.2);
 	--clr-txt-gray: gray;
+	--clr-txt-tint: silver;
 	--clr-foot: red;
 	--clr-thm: lightblue;
 }
-* {
-}
 html {
 	scroll-behavior: smooth;
+}
+body {
+	background: var(--clr-bg);
+	color: var(--clr-txt);
 }
 footer {
   min-height: 10ch;
@@ -19,16 +22,18 @@ footer {
 }
 header {
   container-type: inline-size;
-  background: var(--clr-txt-gray);
+  background: var(--clr-txt-tint);
 }
 h1, h2, h3 {
   text-align: center;
 }
 nav {
+	padding: 1ch 0;
   display: flex;
   place-content: space-between;
   list-style: none;
   background-color: var(--clr-thm);
+	overflow-x: auto;
 }
 button {
   background: transparent;
@@ -36,25 +41,37 @@ button {
   padding-inline: .5em;
 }
 img {
-max-width: 100%;
+  max-width: 100%;
 	height: auto;
 }
 .pkmn-list {
   list-style: none;
 	padding: 0;
-  margin-left: 3em;
+  margin-inline: .5em;
   margin-bottom: 2em;
 }
-.pkmn-list[hidden] {
+.pkmn-list > * {
+	margin-bottom: .5em;
+}
+.pkmn-list[hidden], h2[hidden] {
   display: none;
 }
 .pkmn {
-  padding: .7rem;
+  padding-inline: .7rem;
+	margin-inline: .25rem;
 	border-radius: .5rem;
-  box-shadow: 0 0 .5rem silver;
+  box-shadow: 0 0 .5rem var(--clr-txt-tint);
+	display: grid;
+	grid-template-columns: repeat(2, 50%);
+	place-items: center;
+}
+.pkmn-info-moves {
+	padding: 1.15em;
+	border-radius: .5rem;
+  box-shadow: 0 0 .5rem var(--clr-txt-tint);
 }
 .pkmn:not(:last-child) {
-  /*border-bottom: 1px solid var(--clr-txt);*/
+  border-bottom: 1px solid var(--clr-txt);
 }
 .filter-btn.active {
   pointer-events: none;
@@ -63,16 +80,19 @@ max-width: 100%;
   box-shadow: 0 0 .5rem var(--clr-txt-low-op);
 }
 #backToTop {
-	user-select: none;
-	font-size: 2rem;
+	font-size: 1.1rem;
 	position: fixed;
 	bottom: 2rem;
 	right: 1rem;
 	border-radius: 1rem;
+	padding: .5rem;
 	opacity: .6;
-	cursor: pointer;
 	transition: opacity 300ms ease-in-out, box-shadow 300ms ease-in-out;
 	box-shadow: 0 0 1rem transparent;
+}
+#backToTop, #backToTop > * {
+	user-select: none;
+	cursor: pointer;	
 }
 #backToTop:hover, #backToTop:focus-within {
 	opacity: 1;
@@ -88,8 +108,15 @@ max-width: 100%;
 }
 @media (orientation:portrait) {
 	#backToTop:hover, #backToTop:focus-within {
-	box-shadow: 0 0 1rem silver;
-	}	
+	box-shadow: 0 0 1rem var(--clr-txt-tint);
+	}
+}
+@media (width > 440px) {
+	.pkmn-list {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
+		grid-gap: 1rem;
+	}
 }
 @media (prefers-color-scheme: dark) {
 	:root {
