@@ -57,7 +57,7 @@ img {
   display: none;
 }
 .pkmn {
-  padding-inline: .7rem;
+  padding: 1.1rem .7rem;
 	margin-inline: .25rem;
 	border-radius: .5rem;
   box-shadow: 0 0 .5rem var(--clr-txt-tint);
@@ -69,9 +69,6 @@ img {
 	padding: 1.15em;
 	border-radius: .5rem;
   box-shadow: 0 0 .5rem var(--clr-txt-tint);
-}
-.pkmn:not(:last-child) {
-  border-bottom: 1px solid var(--clr-txt);
 }
 .filter-btn.active {
   pointer-events: none;
