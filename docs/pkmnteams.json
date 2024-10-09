@@ -150,9 +150,9 @@
 	"Gen3": [
 		{
 			"name": "Sceptile",
-			"nick": "",
+			"nick": "Leila",
 			"num": "254",
-			"nature": "",
+			"nature": "Timid",
 			"moves": [
 				"Dragon Claw",
 				"Thunder Punch",
@@ -163,8 +163,8 @@
 		{
 			"name": "Blazekin",
 			"num": "257",
-			"nick": "",
-			"nature": "",
+			"nick": "Rigor",
+			"nature": "Naughty",
 			"moves": [
 				"Blaze Kick",
 				"Sky Uppercut",
@@ -175,8 +175,8 @@
 		{
 			"name": "Raichu",
 			"num": "026",
-			"nick": "",
-			"nature": "",
+			"nick": "Duct",
+			"nature": "Hasty",
 			"moves": [
 				"Thunder",
 				"Substitute",
@@ -187,8 +187,8 @@
 		{
 			"name": "Cloyster",
 			"num": "091",
-			"nick": "",
-			"nature": "",
+			"nick": "Cache",
+			"nature": "Bold",
 			"moves": [
 				"Ice Beam",
 				"Surf",
@@ -199,8 +199,8 @@
 		{
 			"name": "Aggron",
 			"num": "306",
-			"nick": "",
-			"nature": "",
+			"nick": "Nail",
+			"nature": "Adamant",
 			"moves": [
 				"Double Edge",
 				"Metal Claw",
@@ -211,8 +211,8 @@
 		{
 			"name": "Shedinja",
 			"num": "292",
-			"nick": "",
-			"nature": "",
+			"nick": "Justice",
+			"nature": "Lonely",
 			"moves": [
 				"Silver Wind",
 				"Shadow Ball",
