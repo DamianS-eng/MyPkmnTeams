@@ -183,7 +183,7 @@ const debugLine = document.querySelector("#inserthere");
 const JSONfile = 'pkmnteams.json';
 
 function importAllTeams() {
-	return new Promise(function(resolve, reject) {
+	return new Promise((resolve, reject) => {
 	fetch(JSONfile)
   		.then((res) => {
    			return res.json();
@@ -193,7 +193,7 @@ function importAllTeams() {
   		}).catch(err => {
 			reject(err);
   		});
-	}
+	})
 };
 function importError(error) {
 	console.log('Error: ', error);
@@ -210,4 +210,4 @@ function insertTeams(data) {
 	filterButtons.forEach((i) => {i.addEventListener('click', clickFilter);});
 	genList = document.querySelectorAll(".pkmn-list");
 }
-window.onload = importAllTeams().then(insertTeams, importError)
+window.onload = importAllTeams().then(insertTeams).catch(importError)
