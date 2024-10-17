@@ -183,23 +183,30 @@ const debugLine = document.querySelector("#inserthere");
 const JSONfile = 'pkmnteams.json';
 
 function importAllTeams() {
+	return new Promise(function(resolve, reject) {
 	fetch(JSONfile)
   		.then((res) => {
    			return res.json();
   		}).then((importData) => {
 			debugLine.innerHTML = "Data Imported.";
-			Object.entries(importData).forEach(([gen, allPokesInGen]) => {
-				const genHeader = document.createElement("h2");
-				genHeader.innerHTML = gen;
-				filterList.appendChild(addGenNav(gen));
-				mainEle.appendChild(genHeader);
-				mainEle.appendChild(addGeneration(gen, allPokesInGen))
-			})
-			filterButtons = filterList.querySelectorAll(".filter-btn");
-			filterButtons.forEach((i) => {i.addEventListener('click', clickFilter);});
-			genList = document.querySelectorAll(".pkmn-list");
+			resolve(Object.entries(importData))
   		}).catch(err => {
-	  		console.log("Hmm, this problem happened...: " + err)
-			return '404';
+			reject(err);
   		});
+	}
 };
+function importError(error) {
+	console.log('Error: ', error);
+}
+function insertTeams(data) {
+	data.forEach(([gen, allPokesInGen]) => {
+		const genHeader = document.createElement("h2");
+		genHeader.innerHTML = gen;
+		filterList.appendChild(addGenNav(gen));
+		mainEle.appendChild(genHeader);
+		mainEle.appendChild(addGeneration(gen, allPokesInGen))
+	})
+	filterButtons = filterList.querySelectorAll(".filter-btn");
+	filterButtons.forEach((i) => {i.addEventListener('click', clickFilter);});
+	genList = document.querySelectorAll(".pkmn-list");
+}
