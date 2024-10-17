@@ -210,3 +210,4 @@ function insertTeams(data) {
 	filterButtons.forEach((i) => {i.addEventListener('click', clickFilter);});
 	genList = document.querySelectorAll(".pkmn-list");
 }
+window.onload = importAllTeams().then(insertTeams, importError)
