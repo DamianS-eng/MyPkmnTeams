@@ -293,6 +293,18 @@
 				"",
 				""
 			]
+		},
+		{
+			"name": "Raikou",
+			"num": "243",
+			"nick": "",
+			"nature": "",
+			"moves": [
+				"",
+				"",
+				"",
+				""
+			]
 		}
 	],
 	"Gen4": [
@@ -421,75 +433,147 @@
 	],
 	"Legends": [
 		{
-			"name": "Ursaluna",
-			"nick": "",
-			"num": "901",
-			"nature": "",
+			"name": "Typhlosion",
+			"nick": "Riley",
+			"num": "157",
+			"nature": "Mild",
 			"moves": [
-				 "",
-				"",
-				"",
-				""
+				 "Infernal Parade",
+				"Wild Charge",
+				"Overheat",
+				"Quick Attack"
 			]
 		},
 		{
-			"name": "",
-			"num": "186",
-			"nick": "",
-			"nature": "",
+			"name": "Decidueye",
+			"num": "724",
+			"nick": "Sharpie",
+			"nature": "Lonely",
 			"moves": [
-				"",
-				"",
-				"",
-				""
+				"Leaf Storm",
+				"Triple Arrows",
+				"Roost",
+				"False Swipe"
 			]
 		},
 		{
-			"name": "",
-			"num": "186",
-			"nick": "",
-			"nature": "",
+			"name": "Arcanine",
+			"num": "059",
+			"nick": "Toothy",
+			"nature": "Adamant",
 			"moves": [
-				"",
-				"",
-				"",
-				""
+				"Flare Blitz",
+				"Rock Slide",
+				"Crunch",
+				"Double-Edge"
 			]
 		},
 		{
-			"name": "",
-			"num": "186",
-			"nick": "",
-			"nature": "",
+			"name": "Gyarados",
+			"num": "130",
+			"nick": "Darla",
+			"nature": "Adamant",
 			"moves": [
-				"",
-				"",
-				"",
-				""
+				"Waterfall",
+				"Bite",
+				"Dragon Dance",
+				"Avalanche"
 			]
 		},
 		{
-			"name": "",
-			"num": "186",
-			"nick": "",
-			"nature": "",
+			"name": "Umbreon",
+			"num": "197",
+			"nick": "Astro",
+			"nature": "Calm",
 			"moves": [
-				"",
-				"",
-				"",
-				""
+				"Shadow Ball",
+				"Snarl",
+				"Toxic",
+				"Moonlight"
 			]
 		},
 		{
-			"name": "",
-			"num": "186",
-			"nick": "",
-			"nature": "",
+			"name": "Machamp",
+			"num": "068",
+			"nick": "Mucho",
+			"nature": "Adamant",
 			"moves": [
-				"",
-				"",
-				"",
-				""
+				"Ice Punch",
+				"Bullet Punch",
+				"Rock Slide",
+				"Drain Punch"
+			]
+		},
+		{
+			"name": "Floatzel",
+			"num": "419",
+			"nick": "Jet",
+			"nature": "Jolly",
+			"moves": [
+				"Ice Punch",
+				"Aqua Jet",
+				"Rock Smash",
+				"Crunch"
+			]
+		},
+		{
+			"name": "Alakazam",
+			"num": "065",
+			"nick": "Jet",
+			"nature": "Modest",
+			"moves": [
+				"Dazzling Gleam",
+				"Psychic",
+				"Charge Beam",
+				"Shadow Ball"
+			]
+		},
+		{
+			"name": "Gengar",
+			"num": "094",
+			"nick": "Yaso",
+			"nature": "Modest",
+			"moves": [
+				"Dark Pulse",
+				"Hypnosis",
+				"Shadow Ball",
+				"Venoshock"
+			]
+		},
+		{
+			"name": "Crobat",
+			"num": "169",
+			"nick": "Tang",
+			"nature": "Jolly",
+			"moves": [
+				"X-Scissor",
+				"Cross Poison",
+				"Bite",
+				"Aerial Ace"
+			]
+		},
+		{
+			"name": "Rhyperior",
+			"num": "464",
+			"nick": "Driller",
+			"nature": "Brave",
+			"moves": [
+				"Fire Fang",
+				"Double-Edge",
+				"High Horsepower",
+				"Rock Slide"
+			]
+		},
+		{
+			"name": "Scizor",
+			"num": "212",
+			"nick": "Clip",
+			"nature": "Adamant",
+			"moves": [
+				"Aerial Ace",
+				"X-Scissor",
+				"Bullet Punch",
+				"Swords Dance"
 			]
 		}
 	]
