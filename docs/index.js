@@ -78,9 +78,9 @@ function filterEvents(clickedFilterName) {
 		};
 	});
 };
-function changeEvent(event) {
-	changeActive(event.currentTarget);
-	filterEvents(event.currentTarget.name);
+function changeEvent(target, name) {
+	changeActive(target);
+	filterEvents(name);
 }
 function clickFilter(event) {
 	if(event.name === "All") {
@@ -91,11 +91,11 @@ function clickFilter(event) {
 	}
 	if (!document.startViewTransition) {
 		if(debugLine && debug) { debugLine.innerText = "Getting " + event.currentTarget.name; }
-		changeEvent(event);
+		changeEvent(event.currentTarget, event.currentTarget.name);
     	return;
   	};
-  	const transition = document.startViewTransition(() => changeEvent(event));
-	console.log(transition);
+  	const transition = document.startViewTransition(() => changeEvent(event, event.currentTarget.name));
+	if (debug) { console.log(transition); }
 };
 function changeActive(clickedButton) {
 	/*
