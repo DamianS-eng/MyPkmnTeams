@@ -78,6 +78,10 @@ function filterEvents(clickedFilterName) {
 		};
 	});
 };
+function changeEvent(event) {
+	changeActive(event.currentTarget);
+	filterEvents(event.currentTarget.name);
+}
 function clickFilter(event) {
 	if(event.name === "All") {
 		changeActive(event);
@@ -85,16 +89,13 @@ function clickFilter(event) {
 		if(debugLine && debug) { debugLine.innerHTML = "Showing All."; }
 		return;
 	}
-  if (!document.startViewTransition) {
-	if(debugLine && debug) { debugLine.innerText = "Getting " + event.currentTarget.name; }
-    changeActive(event.currentTarget);
-    filterEvents(event.currentTarget.name);
-    return;
-  };
-  document.startViewTransition(() => {
-    changeActive(event.currentTarget);
-    filterEvents(event.currentTarget.name);    
-  });
+	if (!document.startViewTransition) {
+		if(debugLine && debug) { debugLine.innerText = "Getting " + event.currentTarget.name; }
+		changeEvent(event);
+    	return;
+  	};
+  	const transition = document.startViewTransition(() => changeEvent(event));
+	console.log(transition);
 };
 function changeActive(clickedButton) {
 	/*
