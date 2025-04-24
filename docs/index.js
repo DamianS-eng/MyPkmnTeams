@@ -83,6 +83,8 @@ function changeEvent(target, name) {
 	filterEvents(name);
 }
 function clickFilter(event) {
+	const clickTarget = event.currentTarget;
+	const clickedName = event.currentTarget.name;
 	if(event.name === "All") {
 		changeActive(event);
 		filterEvents("All");
@@ -90,11 +92,11 @@ function clickFilter(event) {
 		return;
 	}
 	if (!document.startViewTransition) {
-		if(debugLine && debug) { debugLine.innerText = "Getting " + event.currentTarget.name; }
-		changeEvent(event.currentTarget, event.currentTarget.name);
-    	return;
+		if(debugLine && debug) { debugLine.innerText = "Getting " + clickedName; }
+		changeEvent(clickTarget, clickedName);
+    return;
   	};
-  	const transition = document.startViewTransition(() => changeEvent(event, event.currentTarget.name));
+  	const transition = document.startViewTransition(() => changeEvent(clickTarget, clickedName));
 	if (debug) { console.log(transition); }
 };
 function changeActive(clickedButton) {
