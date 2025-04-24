@@ -10,6 +10,7 @@ const debug = true;
 
 const filterList = document.querySelector(".filter");
 const mainEle = document.querySelector("main");
+const debugLine = document.querySelector("#inserthere");
 let genList = document.querySelectorAll(".pkmn-list");
 let genHeaderList = document.querySelectorAll("h2");
 let filterButtons = filterList.querySelectorAll(".filter-btn");
@@ -81,9 +82,11 @@ function clickFilter(event) {
 	if(event.name === "All") {
 		changeActive(event);
 		filterEvents("All");
+		if(debugLine && debug) { debugLine.innerHTML = "Showing All."; }
 		return;
 	}
   if (!document.startViewTransition) {
+	if(debugLine && debug) { debugLine.innerText = "Getting " + event.currentTarget.name; }
     changeActive(event.currentTarget);
     filterEvents(event.currentTarget.name);
     return;
@@ -179,7 +182,6 @@ function addPkmnInfo(Pkmninfo, gen) {
 	return pokeEle;
 };
 /* Async Import */
-const debugLine = document.querySelector("#inserthere");
 const JSONfile = 'pkmnteams.json';
 
 function importAllTeams() {
@@ -188,7 +190,7 @@ function importAllTeams() {
   		.then((res) => {
    			return res.json();
   		}).then((importData) => {
-			debugLine.innerHTML = "Data Imported.";
+			if(debugLine && debug) { debugLine.innerText = "Data Imported."; }
 			resolve(Object.entries(importData))
   		}).catch(err => {
 			reject(err);
