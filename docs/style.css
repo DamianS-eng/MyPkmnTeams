@@ -33,9 +33,21 @@ nav {
 	display: flex;
 	place-content: space-between;
 	list-style: none;
-	background-color: var(--clr-thm);
 	min-height: 2.75rem;
 	overflow-x: auto;
+}
+nav li {
+	background: var(--clr-bg);
+	padding-inline: .5rem;
+	display: grid;
+}
+nav li, .filter-btn {
+	border-radius: 1rem;
+}
+.filter-btn {
+	margin: auto;
+	user-select: none;
+	transition: background-color var(--fade-time) ease-in-out, transform var(--fade-time) ease-in-out;
 }
 button {
 	background: transparent;
@@ -60,26 +72,33 @@ img {
 	display: none;
 }
 .pkmn {
-  	padding: 1.1rem .7rem;
+	padding: 1.1rem .7rem;
 	margin-inline: .25rem;
 	border-radius: .5rem;
-  	box-shadow: 0 0 .5rem var(--clr-txt-tint);
+	box-shadow: 0 0 .5rem var(--clr-txt-tint);
 	display: grid;
 	grid-template-columns: repeat(2, 50%);
 	place-items: center;
 }
-
+.pkmn:focus-within {
+	box-shadow: 0 0 1.25rem .25rem var(--clr-txt-tint);
+}
 .pkmn-info-moves {
 	padding: 1.15em;
 	border-radius: .5rem;
 	box-shadow: 0 0 .5rem var(--clr-txt-tint);
+}
+.filter-btn:focus {
+    background-color: var(--clr-bg-tint);
+    color: var(--clr-txt);
+    cursor: pointer;
+    transform: scale(1.2);
 }
 .filter-btn.active {
 	pointer-events: none;
 	background: var(--clr-txt);
 	color: var(--clr-bg);
 	box-shadow: 0 0 .5rem var(--clr-txt-low-op);
-	user-select: none;
 }
 #backToTop {
 	font-size: 1.1rem;
@@ -88,51 +107,47 @@ img {
 	right: 1rem;
 	border-radius: 1rem;
 	padding: .5rem;
+}
+#backToTop, #goBack {
 	opacity: .6;
 	transition: opacity var(--fade-time) ease-in-out;
 	box-shadow: 0 0 1rem transparent;
 }
-#backToTop, #backToTop > * {
+#backToTop, #backToTop > *, #goBack > * {
 	user-select: none;
 	cursor: pointer;
 }
+#backToTop:focus-within,
+#goBack:focus-within {
+		opacity: 1;
+		box-shadow: 0 0 1rem var(--clr-txt);
+}
 .pkmn,
 #backToTop,
-#backToTop > *
+#backToTop > *,
+#goBack > *
  {
 	transition: box-shadow var(--fade-time) ease-in-out;
  }
 @media (hover:hover) {
-	.pkmn:hover,
-	.pkmn:focus-within {
+	.pkmn:hover {
 		box-shadow: 0 0 1.25rem .25rem var(--clr-txt-tint);
 	}
-	#backToTop:hover,
-	#backToTop:focus-within {
+	#backToTop:hover, #goBack:hover {
 		opacity: 1;
 		box-shadow: 0 0 1rem var(--clr-txt);
 	}
-	.filter-btn {
-		transition: background-color var(--fade-time) ease-in-out, transform var(--fade-time) ease-in-out;
-	}
-  .filter-btn:hover, .filter-btn:focus {
-    background-color: var(--clr-bg-tint);
-    color: var(--clr-txt);
-    cursor: pointer;
-    transform: scale(1.2);
+	.filter-btn:hover {
+		background-color: var(--clr-bg-tint);
+    	color: var(--clr-txt);
+    	cursor: pointer;
+    	transform: scale(1.2);
   }
-	@media (orientation:portrait) {
-
-		#backToTop:hover,
-		#backToTop:focus-within {
-			box-shadow: 0 0 1rem var(--clr-txt-tint);
-		}
-	}
 }
 @media (width > 27rem) {
 	.pkmn-list {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(min(30ch, 100%), 1fr));
 		grid-gap: 1rem;
 	}
 }
