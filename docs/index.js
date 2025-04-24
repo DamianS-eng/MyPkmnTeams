@@ -59,17 +59,17 @@ function addGenNav(newGen){
 function filterEvents(clickedFilterName) {
 	genList = document.querySelectorAll(".pkmn-list");
 	genHeaderList = document.querySelectorAll("h2");
-  if (clickedFilterName === "All") {
-    loadAll();
-    return;
-  };
-  genList.forEach((gaem) => {
-    const generation = gaem.classList;
-    gaem.setAttribute("hidden", "");
-    if (gaem.classList.contains(clickedFilterName)) {
-	  	gaem.removeAttribute("hidden");	  
-    };
-  });
+	if (clickedFilterName === "All") {
+		loadAll();
+		return;
+	};
+	genList.forEach((gaem) => {
+		const generation = gaem.classList;
+		gaem.setAttribute("hidden", "");
+		if (gaem.classList.contains(clickedFilterName)) {
+			gaem.removeAttribute("hidden");	  
+		};
+	});
 	genHeaderList.forEach((header) => {
 		const headerName = header.innerHTML;
 		header.setAttribute("hidden","");
@@ -101,11 +101,12 @@ function changeActive(clickedButton) {
 	/*
 	if (clickedButton.contains("active")){return;}
  	*/
-  activeButton.classList.remove("active");
+	if (debug) { console.log(clickedButton); }
+	activeButton.classList.remove("active");
 	activeButton.removeAttribute("tabindex");
-  clickedButton.classList.add("active");
+	clickedButton.classList.add("active");
 	clickedButton.setAttribute("tabindex", -1);
-  getActiveButton();
+	getActiveButton();
 };
 function getActiveButton() {
   activeButton = filterList.querySelector(".active");
