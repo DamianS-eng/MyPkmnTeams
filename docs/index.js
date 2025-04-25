@@ -10,6 +10,7 @@ const debug = true;
 
 const filterList = document.querySelector(".filter");
 const mainEle = document.querySelector("main");
+const debugLine = document.querySelector("#inserthere");
 let genList = document.querySelectorAll(".pkmn-list");
 let genHeaderList = document.querySelectorAll("h2");
 let filterButtons = filterList.querySelectorAll(".filter-btn");
@@ -58,17 +59,17 @@ function addGenNav(newGen){
 function filterEvents(clickedFilterName) {
 	genList = document.querySelectorAll(".pkmn-list");
 	genHeaderList = document.querySelectorAll("h2");
-  if (clickedFilterName === "All") {
-    loadAll();
-    return;
-  };
-  genList.forEach((gaem) => {
-    const generation = gaem.classList;
-    gaem.setAttribute("hidden", "");
-    if (gaem.classList.contains(clickedFilterName)) {
-	  	gaem.removeAttribute("hidden");	  
-    };
-  });
+	if (clickedFilterName === "All") {
+		loadAll();
+		return;
+	};
+	genList.forEach((gaem) => {
+		const generation = gaem.classList;
+		gaem.setAttribute("hidden", "");
+		if (gaem.classList.contains(clickedFilterName)) {
+			gaem.removeAttribute("hidden");	  
+		};
+	});
 	genHeaderList.forEach((header) => {
 		const headerName = header.innerHTML;
 		header.setAttribute("hidden","");
@@ -77,31 +78,37 @@ function filterEvents(clickedFilterName) {
 		};
 	});
 };
+function changeEvent(target, name) {
+	changeActive(target);
+	filterEvents(name);
+}
 function clickFilter(event) {
+	const clickTarget = event.currentTarget;
+	const clickedName = event.currentTarget.name;
 	if(event.name === "All") {
 		changeActive(event);
 		filterEvents("All");
+		if(debugLine && debug) { debugLine.innerHTML = "Showing All."; }
 		return;
 	}
-  if (!document.startViewTransition) {
-    changeActive(event.currentTarget);
-    filterEvents(event.currentTarget.name);
+	if (!document.startViewTransition) {
+		if(debugLine && debug) { debugLine.innerText = "Getting " + clickedName; }
+		changeEvent(clickTarget, clickedName);
     return;
-  };
-  document.startViewTransition(() => {
-    changeActive(event.currentTarget);
-    filterEvents(event.currentTarget.name);    
-  });
+  	};
+  	const transition = document.startViewTransition(() => changeEvent(clickTarget, clickedName));
+	if (debug) { console.log(transition); }
 };
 function changeActive(clickedButton) {
 	/*
 	if (clickedButton.contains("active")){return;}
  	*/
-  activeButton.classList.remove("active");
+	if (debug) { console.log(clickedButton); }
+	activeButton.classList.remove("active");
 	activeButton.removeAttribute("tabindex");
-  clickedButton.classList.add("active");
+	clickedButton.classList.add("active");
 	clickedButton.setAttribute("tabindex", -1);
-  getActiveButton();
+	getActiveButton();
 };
 function getActiveButton() {
   activeButton = filterList.querySelector(".active");
@@ -179,7 +186,6 @@ function addPkmnInfo(Pkmninfo, gen) {
 	return pokeEle;
 };
 /* Async Import */
-const debugLine = document.querySelector("#inserthere");
 const JSONfile = 'pkmnteams.json';
 
 function importAllTeams() {
@@ -188,7 +194,7 @@ function importAllTeams() {
   		.then((res) => {
    			return res.json();
   		}).then((importData) => {
-			debugLine.innerHTML = "Data Imported.";
+			if(debugLine && debug) { debugLine.innerText = "Data Imported."; }
 			resolve(Object.entries(importData))
   		}).catch(err => {
 			reject(err);
