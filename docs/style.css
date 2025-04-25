@@ -42,7 +42,8 @@ nav li {
 	display: grid;
 }
 nav li, .filter-btn {
-	border-radius: 1rem;
+	margin: auto 1ch;
+	border-radius: 2rem;
 }
 .filter-btn {
 	margin: auto;
@@ -51,8 +52,7 @@ nav li, .filter-btn {
 }
 button {
 	background: transparent;
-	border: 2px solid transparent;
-	min-width: 2.75rem;
+	border: .2ch solid transparent;
 	min-height: 2.5rem;
 }
 img {
