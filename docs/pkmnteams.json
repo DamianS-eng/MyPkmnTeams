@@ -221,15 +221,15 @@
 			]
 		}
 	],
-	"Colloseum": [
+	"Colosseum": [
 		{
 			"name": "Umbreon",
-			"nick": "",
+			"nick": "Nox",
 			"num": "197",
-			"nature": "",
+			"nature": "Relaxed",
 			"moves": [
-				"",
-				"",
+				"Faint Attack",
+				"Snatch",
 				"",
 				""
 			]
@@ -237,11 +237,11 @@
 		{
 			"name": "Quilava",
 			"num": "156",
-			"nick": "",
-			"nature": "",
+			"nick": "Tyber",
+			"nature": "Hardy",
 			"moves": [
-				"",
-				"",
+				"Seismic Toss",
+				"Flame Wheel",
 				"",
 				""
 			]
@@ -261,8 +261,8 @@
 		{
 			"name": "Flygon",
 			"num": "330",
-			"nick": "",
-			"nature": "",
+			"nick": "Flappa",
+			"nature": "Hardy",
 			"moves": [
 				"Dragon Claw",
 				"Earthquake",
@@ -285,13 +285,13 @@
 		{
 			"name": "Hariyama",
 			"num": "297",
-			"nick": "",
-			"nature": "",
+			"nick": "Heihachi",
+			"nature": "Sassy",
 			"moves": [
-				"",
-				"",
-				"",
-				""
+				"Belly Drum",
+				"Foresight",
+				"Vital Throw",
+				"Smellingsalt"
 			]
 		},
 		{
@@ -304,6 +304,18 @@
 				"",
 				"",
 				""
+			]
+		},		
+		{
+			"name": "Suicune",
+			"num": "244",
+			"nick": "Flow",
+			"nature": "Bold",
+			"moves": [
+				"Calm Mind",
+				"Surf",
+				"Ice Beam",
+				"Rain Dance"
 			]
 		}
 	],
