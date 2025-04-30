@@ -23,7 +23,7 @@ const imglinks = {
 	Gen1: 	sitesource + '/pokearth/sprites/rb/'+ '000' + '.png',
 	Gen2: 	sitesource + '/pokearth/sprites/gold/'+ '000' + '.png',
 	Gen3: 	sitesource + '/emerald/pokemon/'+ '000' + '.png',
-	Colloseum: sitesource + '/emerald/pokemon/'+ '000' + '.png',
+	Colosseum: sitesource + '/pokearth/sprites/cxd/'+ '000' + '.png',
 	Gen4: 	sitesource + '/pokearth/sprites/hgss/'+ '000' + '.png',
 	Gen6: 	sitesource + '/xy/pokemon/'+ '000' + '.png',
 	Legends: sitesource + '/swordshield/pokemon/'+ '000' + '.png'
