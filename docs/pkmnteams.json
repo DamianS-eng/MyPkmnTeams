@@ -71,6 +71,78 @@
 				"Swift",
 				"Substitute"
 			]
+		},
+		{
+			"name": "Hitmonlee",
+			"num": "106",
+			"nick": "Lee",
+			"nature": "Adamant",
+			"moves": [
+				"Double Kick",
+				"Mega Kick",
+				"Counter",
+				"Substitute"
+			]
+		},
+		{
+			"name": "Charizard",
+			"num": "006",
+			"nick": "Commander",
+			"nature": "Jolly",
+			"moves": [
+				"Flamethrower",
+				"Earthquake",
+				"Dragon Claw",
+				"Substitute"
+			]
+		},
+		{
+			"name": "Chansey",
+			"num": "113",
+			"nick": "Cancer",
+			"nature": "Sassy",
+			"moves": [
+				"Softboiled",
+				"Egg Bomb",
+				"Swift",
+				"Substitute"
+			]
+		},
+		{
+			"name": "Cloyster",
+			"num": "091",
+			"nick": "Collapse",
+			"nature": "Bold",
+			"moves": [
+				"Surf",
+				"Ice Beam",
+				"Toxic",
+				"Substitute"
+			]
+		},
+		{
+			"name": "Machamp",
+			"num": "068",
+			"nick": "Abs",
+			"nature": "Brave",
+			"moves": [
+				"Karate Chop",
+				"Foresight",
+				"Counter",
+				"Substitute"
+			]
+		},
+		{
+			"name": "Tauros",
+			"num": "128",
+			"nick": "Toro",
+			"nature": "Adamant",
+			"moves": [
+				"Hyper Beam",
+				"Flamethrower",
+				"Mega Kick",
+				"Substitute"
+			]
 		}
 	],
 	"Gen2": [
@@ -230,8 +302,8 @@
 			"moves": [
 				"Faint Attack",
 				"Snatch",
-				"",
-				""
+				"Toxic",
+				"Substitute"
 			]
 		},
 		{
@@ -274,7 +346,7 @@
 			"name": "Meganium",
 			"num": "154",
 			"nick": "",
-			"nature": "",
+			"nature": "Relaxed",
 			"moves": [
 				"",
 				"",
@@ -297,13 +369,13 @@
 		{
 			"name": "Raikou",
 			"num": "243",
-			"nick": "",
-			"nature": "",
+			"nick": "Raijin",
+			"nature": "Timid",
 			"moves": [
-				"",
-				"",
-				"",
-				""
+				"Thunder",
+				"Rain Dance",
+				"Reflect",
+				"Quick Attack"
 			]
 		},		
 		{
